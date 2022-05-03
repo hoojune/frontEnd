@@ -1,0 +1,21 @@
+/* 
+*{ color:blueviolet}현재문서의 기본속성 모두 적용
+h1{ color:red;}지정에 기본값을 적용
+.type1{color:brown}
+#ttl{ font-size: 50px; text-decoration: underline;}
+*/
+
+/* .main li a{ color: brown;} */
+/* .main > li > a{ color: brown;} */
+
+.type2-1 + h2{ font-size: 30px; color: crimson;}
+#ttl + .type1{ font-size: 30px; color:green}
+#ttl ~ .type2-1{ font-size: 100px;}
+
+a{ text-decoration: none; color: #555;}
+
+a:link{color: #555; font-size: 50px; text-decoration: none;}
+a:hover{color: darkgoldenrod; text-decoration: underline;}
+a:active{color: darkmagenta; text-decoration: overline;}
+a:visited{color: darkorange;}
+h1,h2,.main{ font-size: 100px;}
