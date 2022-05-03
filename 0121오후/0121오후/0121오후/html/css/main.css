@@ -1,0 +1,57 @@
+#wrap{width: 100%;}
+
+        #header{width: 100%; height: 120px;
+                background-color: aquamarine;}
+        #header .logo{ float: left;
+                       width: 130px; height: 120px;
+                       background-color: darkgoldenrod;
+                       text-align: center; line-height: 120px;
+                       color: #fff;}
+        #header .main_nav{float: left; margin: 50px 0 0 300px; }
+        #header .main_nav li{float: left; margin-right: 150px;}
+        #header .main_nav li a{font-size: 18px; color:#000;}
+
+        #header .info_mn{float:right; margin: 10px 10px 0 0; }
+        #header .info_mn li{float: left; margin-right: 20px;}
+        #header .info_mn li a{font-size: 10px;}
+
+        #main_img{width: 100%; height: 350px;
+                  background-color:blueviolet;}
+
+        #contents{width: 100%; height: 3000px;
+                  background-color: cornflowerblue;}
+                  
+        #contents #con1{margin: 0 auto;/*박스 자기자신 가운데 배치*/
+                        width: 1000px; height: 300px;
+                        background-color: burlywood;}
+
+        #con1 .con1_h{float:left; width: 180px; height: 300px;
+                      background-color: chocolate;}
+                      
+        #con1 .con1_b{float:right; width: 800px; height: 300px;
+                      background-color: chocolate;}
+        #con1 .con1_b > li{ float: left; margin-right: 13.3px; 
+                            width: 190px; height: 300px;
+                            background-color: crimson;}
+        #con1 .con1_b > li.last{margin-right: 0;}
+ 
+        #con2{margin: 0 auto; margin-top: 50px;
+            width: 1000px; height: 420px;
+            background-color: darkgray;
+        }
+        #con2 > .group{float: left; width: 480px; height: 420px;}
+        #con2 .box01{width: 480px; height: 200px;
+                     background-color: darkorange;}
+        #con2 .box02{margin-top: 20px; 
+                     width: 480px; height: 200px;
+                     background-color: deeppink;}
+        #con2 > .box03{float: right; width: 500px; height:420px;
+                       background-color: forestgreen;}
+
+
+
+
+
+
+        #footer{width: 100%; height: 100px;
+                background-color: crimson;}

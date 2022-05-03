@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹사이트 기본구조</title>
+    <style>
+        /* 기본 reset 스타일시트 */
+        *{margin: 0; padding: 0;}
+        body{ 
+            font-family: '맑은 고딕'; 
+            font-size: 12px; 
+            color:#555;}
+        img{border:0}
+        ul,ol,li{list-style:none;}
+        
+        a{ text-decoration: none; color:#555;}
+        /* a:link{} 기본스타일시트
+        a:hover{} 마우스를 버튼위에 올렸을때
+        a:active{} 마우스로 버튼을 누르고 있을때
+        a:visited{} 마우스로 한번이상 눌렀을때  */
+       
+
+
+        /* 레이아웃 스타일시트 */
+        #wrap{width: 100%;}
+
+        #header{width: 100%; height: 120px;
+                background-color: aquamarine;}
+        #header .logo{ float: left;
+                       width: 130px; height: 120px;
+                       background-color: darkgoldenrod;
+                       text-align: center; line-height: 120px;
+                       color: #fff;}
+        #header .main_nav{float: left; margin: 50px 0 0 300px; }
+        #header .main_nav li{float: left; margin-right: 150px;}
+        #header .main_nav li a{font-size: 18px; color:#000;}
+
+        #header .info_mn{float:right; margin: 10px 10px 0 0; }
+        #header .info_mn li{float: left; margin-right: 20px;}
+        #header .info_mn li a{font-size: 10px;}
+
+        #main_img{width: 100%; height: 350px;
+                  background-color:blueviolet;}
+
+        #contents{width: 100%; height: 3000px;
+                  background-color: cornflowerblue;}
+                  
+        #contents #con1{margin: 0 auto;/*박스 자기자신 가운데 배치*/
+                        width: 1000px; height: 300px;
+                        background-color: burlywood;}
+
+        #con1 .con1_h{float:left; width: 180px; height: 300px;
+                      background-color: chocolate;}
+                      
+        #con1 .con1_b{float:right; width: 800px; height: 300px;
+                      background-color: chocolate;}
+        #con1 .con1_b > li{ float: left; margin-right: 13.3px; 
+                            width: 190px; height: 300px;
+                            background-color: crimson;}
+        #con1 .con1_b > li.last{margin-right: 0;}
+ 
+        #con2{margin: 0 auto; margin-top: 50px;
+            width: 1000px; height: 420px;
+            background-color: darkgray;
+        }
+        #con2 > .group{float: left; width: 480px; height: 420px;}
+        #con2 .box01{width: 480px; height: 200px;
+                     background-color: darkorange;}
+        #con2 .box02{margin-top: 20px; 
+                     width: 480px; height: 200px;
+                     background-color: deeppink;}
+        #con2 > .box03{float: right; width: 500px; height:420px;
+                       background-color: forestgreen;}
+
+
+
+
+
+
+        #footer{width: 100%; height: 100px;
+                background-color: crimson;}
+
+    
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <!-- 상단부분 -->
+    <div id="header">
+        <h1 class="logo">logo</h1>
+        <ul class="main_nav">
+            <li><a href="#">주메뉴1</a></li>
+            <li><a href="#">주메뉴2</a></li>
+            <li><a href="#">주메뉴3</a></li>
+            <li><a href="#">주메뉴4</a></li>
+            <li><a href="#">주메뉴5</a></li>
+        </ul>
+        <ul class="info_mn">
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">관리자에게 메일</a></li>
+        </ul>
+    </div>
+     
+
+    <!-- 메인이미지부분 -->
+    <div id="main_img"><img></div>
+
+    <!-- 콘텐츠부분 -->
+    <div id="contents">
+          <div id="con1">
+              <div class="con1_h">con1_h</div>
+              <ul class="con1_b">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li class="last">4</li>
+              </ul>
+          </div>
+          <!-- 문단의 그룹 예 -->
+          <div id="con2">
+              <div class="group">
+                  <div class="box01">box01</div>
+                  <div class="box02">box02</div>
+              </div>
+              <div class="box03">box03</div>
+          </div>
+
+
+          <div id="con3"></div>
+          <div id="con4"></div>
+          <div id="con5"></div>
+    </div>
+
+    <!-- 하단부분 -->
+    <div id="footer">
+        <h2>로고2</h2>
+        <ul>
+            <li><a href="#">인포메뉴</a></li>
+            <li><a href="#">인포메뉴</a></li>
+            <li><a href="#">인포메뉴</a></li>
+            <li><a href="#">인포메뉴</a></li>
+        </ul>
+        <p>회사정보</p>
+        <p>copyright </p>
+    </div>
+</div>    
+
+
+
+</body>
+</html>
