@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>align-items</title>
+  <style>
+    .wrapper{width: 500px; height: 400px; margin: 0 auto; 
+                border: 3px solid red;
+                display: flex; }
+
+    .wrapper div{width: 100px; border: 1px solid #000;
+                  background-color: aqua;}
+    .wrapper div:nth-child(3){width: 400px;}
+    
+    #container1{align-items:flex-start; }
+    #container2{align-items:flex-end;}
+    #container3{align-items:center;}
+    #container4{align-items:stretch;}
+    #container5{align-items:baseline;}
+
+  </style>
+</head>
+<body>
+  <h2>flex-align-self</h2>
+  <h3>align-items : flex-start</h3>  
+  <div id="container1" class="wrapper">
+    <div id="box1"><h2>1</h2></div>
+    <div id="box2"><h2>2</h2></div>
+    <div id="box3"><h2>3</h2></div>
+  </div>
+
+  <h3>flex-align-self: flex-end</h3>  
+  <div id="container2" class="wrapper">
+    <div id="box2-1"><h2>1</h2></div>
+    <div id="box2-2"><h2>2</h2></div>
+    <div id="box2-3"><h2>3</h2></div>
+  </div>
+
+  <h3>flex-align-self: center</h3> 
+  <div id="container3" class="wrapper">
+    <div id="box3-1"><h2>1</h2></div>
+    <div id="box3-2"><h2>2</h2></div>
+    <div id="box3-3"><h2>3</h2></div>
+  </div>
+
+  <h3>flex-align-self : stretch</h3> 
+  <div id="container4" class="wrapper">
+    <div id="box4-1"><h2>1</h2></div>
+    <div id="box4-2"><h2>2</h2></div>
+    <div id="box4-3"><h2>3</h2></div>
+  </div>
+
+  <h3>flex-align-self :baseline</h3> 
+  <div id="container5" class="wrapper">
+    <div id="box5-1" style="height: 50px;"><h2>1</h2></div>
+    <div id="box5-2" style="height: 100px;"><h2>2</h2></div>
+    <div id="box5-3" style="height: 30px;"><h2>3</h2></div>
+  </div>
+
+</body>
+</html>

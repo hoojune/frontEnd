@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        a{text-decoration: none;}
+        
+        #main_img{ width: 100%; height: 350px;
+                   background-color: rgb(188, 202, 202);
+                   }
+
+        #main_img_in{margin: 0 auto; position: relative;
+                     width: 1200px; height: 350px;
+                     background-color: bisque;}
+        #main_img_in h3{text-align: center;  padding-top: 100px;
+                       opacity:0;
+                       font-size: 50px; color: #fff;
+                       animation-name:txt_ani;
+                       animation-delay: 1s;
+                       animation-duration: 5s;
+                       animation-iteration-count: infinite;
+                       animation-direction: alternate;
+                       animation-timing-function: ease-in-out;
+                    } 
+        @keyframes txt_ani{
+            from{/*0초*/
+              opacity:0.1;
+              transform:rotate(0deg);
+            }
+            50%{}
+            to{/*10초*/
+              opacity:1.0;
+              transform:rotate(360deg);
+              color:black
+            }
+        }  
+                    
+          .box1{width: 70px; height: 70px; 
+              border: 1px solid rgb(146, 143, 143);
+              position:absolute; top:100px; left:300px;
+              transform: rotate(-45deg);
+              animation-name: box1_ani;
+              animation-delay: 3s;
+              animation-duration: 12s;
+              animation-direction: alternate;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;}
+              @keyframes box1_ani{
+                 0%{position:absolute; top:100px; left:300px;
+                    transform: rotate(0deg);}
+                 10%{position:absolute; top:300px; left:1000px;
+                    transform: rotate(360deg);}
+                 40%{position:absolute; top:100px; left:600px;
+                    transform: rotate(-180deg);}
+                 70%{position:absolute; top:100px; left:200px;
+                    transform: rotate(0deg);}
+                 100%{position:absolute; top:300px; left:1000px;
+                    transform: rotate(520deg);}
+              }
+
+
+          .box2{width: 50px; height: 50px; 
+              border: 1px solid rgb(146, 143, 143);
+              position:absolute; top:200px; left:1000px;
+              transform: rotate(60deg);
+              animation-name: box2_ani;
+              animation-delay: 2s;
+              animation-duration: 5s;
+              animation-direction: alternate;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+            }
+            @keyframes box2_ani{
+                 0%{position:absolute; top:200px; left:1000px;
+                    transform: rotate(0deg);}
+                 10%{position:absolute; top:300px; left:100px;
+                    transform: rotate(360deg) scale(1);}
+                 20%{position:absolute; top:300px; left:1000px;
+                    transform: rotate(-180deg) scale(0.5);}
+                 70%{position:absolute; top:200px; left:1000px;
+                    transform: rotate(0deg) scale(1);}
+                 100%{position:absolute; top:100px; left:100px;
+                    transform: rotate(520deg) scale(0.2);}
+              }
+
+
+          .box3{width: 30px; height: 30px; 
+              opacity: 0;
+              border: 1px solid rgb(146, 143, 143);
+              position:absolute; top:300px; left:200px;
+              transform: rotate(60deg);
+              animation-name: box3_ani;
+              animation-delay: 2.5s;
+              animation-duration: 7s;
+              animation-direction: alternate;
+              animation-iteration-count: infinite;
+              animation-timing-function: ease-in-out;
+            }   
+            @keyframes box3_ani{
+                0%{position:absolute; top:300px; left:200px;
+                   opacity: 0;
+                   background-color: aqua;
+                   transform: rotate(60deg);}
+                20%{position:absolute; top:200px; left:300px;
+                    opacity: 1;
+                    background-color: blue;
+                    transform: rotate(200deg);}
+                40%{position:absolute; top:200px; left:150px;
+                    opacity: 0;
+                    background-color: chartreuse;
+                    transform: rotate(10deg);}
+                60%{position:absolute; top:100px; left:300px;
+                    opacity: 1;
+                    background-color: chocolate;
+                    transform: rotate(160deg);}
+                80%{position:absolute; top:250px; left:150px;
+                    opacity: 0;
+                    background-color: antiquewhite;
+                    transform: rotate(360deg);}
+                100%{position:absolute; top:300px; left:200px;
+                    opacity: 0;
+                    background-color: brown;
+                    transform: rotate(90deg);
+              }   }                           
+          .box4{width: 30px; height: 30px; 
+              border: 1px solid rgb(146, 143, 143);
+              position:absolute; top:50px; left:900px;
+              transform: rotate(120deg);}  
+          .box5{width: 40px; height: 40px; 
+              border: 1px solid rgb(146, 143, 143);
+              position:absolute; top:200px; left:600px;
+              transform: rotate(20deg);}                
+    </style>
+</head>
+<body>
+    <div id="main_img">
+        <div id="main_img_in">
+            <h3>사이트 주소입니다</h3>
+            <div class="box1"></div>  
+            <div class="box2"></div>  
+            <div class="box3"></div>  
+            <div class="box4"></div>  
+            <div class="box5"></div>  
+        </div>
+    </div>
+</body>
+</html>

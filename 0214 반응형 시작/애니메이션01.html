@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      /* nav1 */
+      .nav1 {
+        width: 750px;
+        height: 30px;
+        border: 1px solid #ccc;
+      }
+      .nav1 > li {
+        float: left;
+        width: 150px;
+        height: 30px;
+        border-right: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 30px;
+      }
+      .nav1 > li > a {
+        display: block;
+        width: 100%;
+        height: 30px;
+      }
+      .nav1 > li > a:hover {
+        background-color: aqua;
+        color: #fff;
+        transition-delay: 0s;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+      }
+      .btn01 {
+        margin: 100px 0 0 100px;
+        display: block;
+        width: 200px;
+        height: 40px;
+        background-color: aliceblue;
+        border: 1px solid #333;
+      }
+      .btn01:hover {
+        border-radius: 10px;
+        width: 500px;
+        background-color: blueviolet;
+        color: #fff;
+        transition-delay: 0.3s;
+        transition-duration: 0.5s;
+      }
+
+      /* nav2 */
+      .nav2 {
+        margin-top: 100px;
+        width: 750px;
+        height: 30px;
+        border: 1px solid rgb(17, 131, 160);
+      }
+      .nav2 > li {
+        float: left;
+        position: relative;
+        width: 150px;
+        height: 30px;
+        border-right: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 30px;
+      }
+      .nav2 > li > a {
+        display: block;
+        width: 100%;
+        height: 30px;
+      }
+      .nav2 > li > a:hover {
+        background-color: aqua;
+        color: #fff;
+        transition-delay: 0s;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+      }
+      .nav2 > li > div {
+        position: absolute;
+        top: 30px;
+        left: 0px;
+        z-index: 9999;
+        width: 100%;
+        height: 300px;
+        background-color: #ccc;
+        opacity: 0; /*display: none;*/
+        transition: all 0.5s;
+      }
+      .nav2 > li:hover div {
+        opacity: 1; /*display: block;*/
+        /*transition: 0.7s*/
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav1">
+      <li><a href="#">menu</a></li>
+      <li><a href="#">menu</a></li>
+      <li><a href="#">menu</a></li>
+      <li><a href="#">menu</a></li>
+      <li><a href="#">menu</a></li>
+    </ul>
+
+    <a href="#" class="btn01">banner</a>
+
+    <ul class="nav2">
+      <li>
+        <a href="#">menu</a>
+        <div class="sub">sub</div>
+      </li>
+      <li>
+        <a href="#">menu</a>
+        <div class="sub">sub</div>
+      </li>
+      <li>
+        <a href="#">menu</a>
+        <div class="sub">sub</div>
+      </li>
+      <li>
+        <a href="#">menu</a>
+        <div class="sub">sub</div>
+      </li>
+      <li>
+        <a href="#">menu</a>
+        <div class="sub">sub</div>
+      </li>
+    </ul>
+  </body>
+</html>

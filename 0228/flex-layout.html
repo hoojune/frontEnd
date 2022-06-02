@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-layout</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    img{border: 0;}
+    ul,li{list-style: none;}
+    a{text-decoration: none;}
+
+   
+    #wrap{ width: 100%;}
+    #main{ width: 100%; height: 700px;
+       background-color: aquamarine;}
+
+    #header{ width: 100%; height: 150px; background-color: aqua;}      
+
+    #header_in{margin: 0 auto; width: 1300px; height: 150px;
+        background-color: bisque; display: flex; justify-content:space-between; }
+
+    #header_in .logo{width: 300px; height: 150px;
+                          background-color: burlywood;}
+
+    #header_in .group{width: 650px; height: 150px;
+                         background-color: rgb(44, 38, 28); }
+
+    #header_in .group .info_area{width: 100%; height: 50px;
+                         background-color: cadetblue;}
+
+    #header_in .group .info_mn{ display: flex; flex-direction: row; justify-content: flex-end;}
+
+        #header_in .group .info_mn li{ width: 60px; height: 50px; line-height: 50px;}
+    #header_in .group .nav_area{width: 100%; height:100px ; padding-top: 20px;
+                                box-sizing: border-box;
+                                background-color: cornflowerblue;}
+    #header_in .group .nav_mn{display: flex; flex-direction: row; justify-content: space-between;}
+    #header_in .group .nav_mn li a{font-size: 20px;}
+
+
+    #contents{width: 100%;}
+    #top{width: 100%; height: 840px; background-color: bisque;
+          display: flex; flex-direction: column; align-items: center;}  /*2개이상은 algin으로 기준잡기 , justify는 1개일시만*/
+    #top > header{width: 1300px; height: 140px; background-color: darkgoldenrod;}
+    #top > section{width: 1300px; height: 700px;background-color:rgb(87, 74, 40) ;}
+    #top > section > ul{display: flex; flex-direction: row; justify-content: space-between;}
+    #top > section > ul > li{width: 350px;height: 700px;
+                              background-color: cornflowerblue;}
+    #con_group{margin: 0 auto; width: 1300px; display: flex;}
+    #banner{width: 850px; height:450px; background-color: cornflowerblue;
+            display: flex; justify-content: center; align-items: center;}
+    #banner > ul{width: 800px; height: 120px;
+                display: flex; justify-content: space-around;
+    }
+    #banner > ul > li{width: 390px; height: 120px;  border: 2px solid #fff;
+                      box-sizing: border-box;
+                      text-align: center; background-color: aqua;}
+    #notice{width: 450px; height:450px; background-color: rgb(78, 93, 122);}
+
+    #footer{width: 100%; height: 230px; background-color: blue;
+            display: flex; flex-direction: column; align-items: center;}
+    #footer > div.f_info_area{width: 1300px; height: 80px; background-color: blueviolet;}
+    #footer > div.f_copy_area{width: 1300px; height: 150px; background-color: brown;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+      <section id="main">
+        <header id="header">
+          <div id="header_in">
+            <!--상단에 헤드영역-->
+            <div class="logo">logo</div>
+            <div class="group">
+              <div class="info_area">
+                <ul class="info_mn">
+                  <li><a href ="#">menu</a></li>
+                  <li><a href ="#">menu</a></li>
+                </ul>
+              </div>
+              <div class="nav_area">
+                <ul class="nav_mn">              
+                  <li><a href="#">menu</a></li>
+                  <li><a href="#">menusasas</a></li>
+                  <li><a href="#">menuad</a></li>
+                  <li><a href="#">menuadadad</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+      </section>
+    <!--콘텐츠영역-->
+    <section id="contents">
+      <article id="top">
+        <header></header>
+        <section>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
+      </article>
+        <div id="con_group">
+          <article id="banner">
+            <ul>
+              <li>gobtn</li>
+              <li>gobtn</li>
+            </ul>
+          </article>
+          <article id="notice"></article>
+        </div>
+    </section>
+    <footer id="footer">
+      <div class="f_info_area"></div>
+      <div class="f_copy_area"></div>
+    </footer>
+  </div>
+  
+</body>
+</html>

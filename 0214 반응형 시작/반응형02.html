@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    ul,li{list-style: none;}
+    a{text-decoration: none;}
+    body{background-color: gold;}
+    
+    #wrap{width: 100%;}
+    #header{float: left; width: 100%; height: 130px;
+            background-color: blue;}
+    #header_in{margin: 0 0;  width:1500px; height: 130px;
+            background-color: rgb(99, 99, 133);}
+    #header_in .logo{float: left; margin-left: 50px; width: 150px; height: 130px;
+                      background-color: coral;}    
+    #header_in .nav{float: right; margin-right: 50px; width: 1000px; height: 130px;
+                    background-color: coral;}
+
+    #main_img{float: left; width: 100%; height: 350px;
+              background-color: blueviolet;}
+    #contents{float: left; width: 100%; 
+              background-color: brown;}
+    #contents_in{margin: 0 auto; padding-top: 40px;
+                   width: 1500px; 
+              background-color: rgb(184, 144, 144);}
+    #contents_in .con1{margin: 0 auto;
+                      width: 1200px; height: 250px;
+                      background-color: navajowhite;}
+    #contents_in .con1_h{float: left; width: 200px; height: 250px;
+                        background-color: brown;}
+    #contents_in .con1_b{float: right; width: 900px; height: 250px;}
+    #contents_in .con1_b > li{float: left; margin-right: 20px; 
+                              width: 205px; height: 250px;
+                              background-color: aqua;}
+
+    #contents_in .con2{margin: 0 auto;
+                      margin-top: 40px; margin-bottom: 40px;
+                      width: 1200px; height: 250px;
+                      background-color: navajowhite;} 
+    #contents_in .con2 > div{float: left; margin-right: 20px;
+                             width: 386px; height: 250px;
+                            background-color: cadetblue;}
+    #contents_in .con2 > div:last-child{margin-right: 0;}
+    #contents_in .con3{
+                      width: 100%; height: 250px;
+                      background-color: navajowhite;} 
+
+    #contents_in .con4{margin: 0 auto;
+                      margin-top: 40px;
+                      width: 1200px; height: 250px;
+                      background-color: navajowhite;} 
+    #contents_in .con4_h{float: left; width: 200px; height: 250px;
+                        background-color: brown;}
+    #contents_in .con4_b{float: right; width: 900px; height: 250px;}
+    #contents_in .con4_b > li{float: left; margin-right: 20px; 
+                              width: 205px; height: 250px;
+                              background-color: aqua;}
+
+    #contents_in .con5{margin: 0 auto;
+                      margin-top: 40px;
+                      width: 1200px; height: 400px;
+                      background-color: navajowhite;} 
+    #contents_in .con5 > .group{float: left; width: 600px; height: 400px;}    
+    #contents_in .con5 > .group li:first-child{width: 600px; height: 190px;
+                                                margin-bottom: 20px;
+                                               background-color: crimson;}
+    #contents_in .con5 > .group li:last-child{width: 600px; height: 190px;
+                                             background-color: crimson;} 
+
+    #contents_in .con5 > a{display: block; float: right;
+                           width: 550px; height: 400px;
+                          background-color: cornflowerblue;}
+
+    #footer{float: left; width: 100%; height: 150px;
+            background-color: chartreuse;}
+    #footer_in{margin: 0 auto;
+            width:1500px; height: 150px;
+            background-color: rgb(180, 40, 110);}
+    #footer_in .logo2{float: left; width: 150px; height: 150px;
+                      background-color: cadetblue;}
+    #footer_in .copyright{float: right; width: 1100px; height: 150px;
+                          background-color: darkmagenta;}    
+
+
+
+
+
+
+    @media all and (max-width:1500px) {
+    #header{float: left; width: 100%; height: 130px;
+            background-color: blue;}
+    #header_in{margin: 0 0;  width:100%; height: 130px;
+            background-color: rgb(99, 99, 133);} }
+    #header_in .logo{float: left; margin-left: 50px;
+                     width: 10%; height: 130px;
+                      background-color: red;}    
+    #header_in .nav{float: right; margin-right: 50px; width: 66.7%; height: 130px;
+                    background-color: coral;}
+    
+    #main_img{float: left; width: 100%; height: 350px;
+              background-color: blueviolet;}
+
+    #contents{float: left; width: 100%; 
+              background-color: brown;}
+    #contents_in{margin: 0 0; width: 100%; 
+              background-color: rgb(184, 144, 144);}
+    #contents_in .con1{margin: 0 auto;   /*1500으로 나누기*/
+                      width: 80%; height: 250px;
+                      background-color: navajowhite;}
+    #contents_in .con1_h{float: left; width: 13.3%; height: 250px;  
+                        background-color: brown;}
+    #contents_in .con1_b{float: right; width: 60%; height: 250px;}
+    #contents_in .con1_b > li{float: left; margin-right: 2.2%;   /*900으로 나눠야함,여백값도 같이 계산*/
+                              width:22.7% ; height: 250px;
+                              background-color: aqua;}
+
+    #contents_in .con2{margin: 0 auto;
+                      margin-top: 40px; margin-bottom: 40px;
+                      width: 80%; height: 250px;
+                      background-color: navajowhite;} 
+
+    #contents_in .con2 > div{float: left; margin-right: 1.6%;
+                             width: 32.2%; height: 250px;
+                            background-color: cadetblue;}
+    #contents_in .con3{
+                      width: 100%; height: 250px;
+                      background-color: navajowhite;} 
+    #contents_in .con4{margin: 0 auto;
+                      margin-top: 40px;
+                      width: 80%; height: 250px;
+                      background-color: navajowhite;} 
+    #contents_in .con4_h{float: left; width: 13.3%; height: 250px;  
+                        background-color: brown;}
+    #contents_in .con4_b{float: right; width: 60%; height: 250px;}
+    #contents_in .con4_b > li{float: left; margin-right: 2.2%;   /*900으로 나눠야함,여백값도 같이 계산*/
+                              width:22.7% ; height: 250px;
+                              background-color: aqua;}
+    #contents_in .con5{margin: 0 auto;
+                      margin-top: 40px;
+                      width: 80%; height: 400px;
+                      background-color: navajowhite;} 
+    #contents_in .con5 > .group{float: left; width: 50%; height: 400px;} 
+    #contents_in .con5 > .group li:first-child{width: 100%; height: 190px;
+                                                margin-bottom: 20px;
+                                               background-color: crimson;}
+    #contents_in .con5 > .group li:last-child{width: 100%; height: 190px;
+                                             background-color: crimson;} 
+    #contents_in .con5 > a{display: block; float: right;
+                           width: 45.8%; height: 400px;
+                          background-color: cornflowerblue;}
+
+    #footer{float: left; width: 100%; height: 150px;
+            background-color: chartreuse;}
+    #footer_in{margin: 0 auto;
+            width:1500px; height: 150px;
+            background-color: rgb(180, 40, 110);}
+    #footer_in .logo2{float: left; width: 16.6%; height: 150px;
+                      background-color: cadetblue;}
+    #footer_in .copyright{float: right; width: 73.3%; height: 150px;
+                          background-color: darkmagenta;} 
+
+
+
+    @media all and (max-width:1200px){
+    #header{float: left; width: 100%; height: 130px;
+            background-color: blue;}
+    #header_in{margin: 0 0;  width:100%; height: 130px;
+            background-color: rgb(99, 99, 133);}
+    #header_in .logo{float: left; margin-left: 4.1%; width: 12.5%; height: 130px;
+                      background-color: blue;}    
+    #header_in .nav{float: right; margin-right: 4.1%; width: 83.3%; height: 130px;
+                    background-color: coral;}
+    #main_img{float: left; width: 100%; height: 350px;
+              background-color: blueviolet;}
+    #contents{float: left; width: 100%; 
+              background-color: brown;}
+    #contents_in{margin: 0 0; padding-top:3.3% ;
+                   width: 100%; 
+              background-color: rgb(184, 144, 144);}
+    #contents_in .con1{margin: 0 auto;
+                      width: 100%; height: 250px;
+                      background-color: navajowhite;}
+    #contents_in .con1_h{float: left; width: 16,6%; height: 250px;
+                        background-color: brown;}
+    #contents_in .con1_b{float: right; width: 75%; height: 250px;}
+    #contents_in .con1_b > li{float: left; margin-right: 1.6%; 
+                              width: 17%; height: 250px;
+                              background-color: aqua;}
+
+    #contents_in .con2{margin: 0 auto;
+                      margin-top: 3.3%; margin-bottom: 3,3%;
+                      width: 100%; height: 250px;
+                      background-color: navajowhite;} 
+    #contents_in .con2 > div{float: left; margin-right: 1,67%;
+                             width: 32.1%; height: 250px;
+                            background-color: cadetblue;}
+    
+    #contents_in .con3{
+                      width: 100%; height: 250px;
+                      background-color: navajowhite;} 
+
+    #contents_in .con4{margin: 0 auto;
+                      margin-top: 3,3%;
+                      width: 100%; height: 250px;
+                      background-color: navajowhite;} 
+    #contents_in .con4_h{float: left; width: 16.6%; height: 250px;
+                        background-color: brown;}
+    #contents_in .con4_b{float: right; width: 75%; height: 250px;}
+    #contents_in .con4_b > li{float: left; margin-right: 1.6%; 
+                              width: 17%; height: 250px;
+                              background-color: aqua;}
+
+    #contents_in .con5{margin: 0 auto;
+                      margin-top: 3.3%;
+                      width: 100%; height: 400px;
+                      background-color: navajowhite;} 
+    #contents_in .con5 > .group{float: left; width: 50%; height: 400px;}    
+    #contents_in .con5 > .group li:first-child{width: 100%; height: 190px;
+                                                margin-bottom: 20px;
+                                               background-color: crimson;}
+    #contents_in .con5 > .group li:last-child{width: 100%; height: 190px;
+                                             background-color: crimson;} 
+   
+    #contents_in .con5 > a{display: block; float: right;
+                           width: 45.8%; height: 400px;
+                          background-color: cornflowerblue;}
+    #footer{float: left; width: 100%; height: 150px;
+            background-color: chartreuse;}
+    #footer_in{margin: 0 auto;
+            width: 100%; height: 150px;
+            background-color: rgb(180, 40, 110);}
+    #footer_in .logo2{float: left; width: 12.5%; height: 150px;
+                      background-color: cadetblue;}
+    #footer_in .copyright{float: right; width: 91.6%; height: 150px;
+                          background-color: darkmagenta;}   
+
+    }
+
+
+
+    @media all and (max-width:1100px){
+      #header{float: left; width: 100%; height: 130px;
+            background-color: blue;}
+    #header_in{margin: 0 0;  width:100%; height: 130px;
+            background-color: rgb(99, 99, 133);}
+    #header_in .logo{float: left; margin-left: 4.5%; width: 13.6%; height: 130px;
+                      background-color: green;}    
+    #header_in .nav{float: right; margin-right: 4.5%; width: 90.9%; height: 130px;
+                    background-color: coral;}  
+
+
+
+
+
+    @media all and (max-width:1000px){/*/display:none ;*/
+      #header{float: left; width: 100%; height: 130px;
+            background-color: blue;}
+      #header_in{margin: 0 0;  width:100%; height: 130px;
+            background-color: yellow;}
+      #header_in .logo{float: left; margin-left: 50px; width: 150px; height: 130px;
+                      background-color: #000;}      
+          }
+
+    @media all and (max-width:800px){
+      #header_in .logo{float: left; margin-left: 50px; width: 150px; height: 130px;
+                      background-color: skyblue}
+      #contents_in .con1_b > li{float: left; margin-right: 2.2%;   
+                              width:31% ; height: 250px;
+                              background-color: aqua;} 
+      #contents_in .con1_b > li:nth-child(4){display: none;}
+
+      #contents_in .con2 > div{float: left; margin-right: 20px;
+                             width: 48.2%; height: 250px;
+                            background-color: cadetblue;}
+      #contents_in .con2 > div:nth-child(3){display: none;}
+
+      #contents_in .con4_b > li{float: left; margin-right: 2.2%;   
+                              width:31% ; height: 250px;
+                              background-color: aqua;} 
+      #contents_in .con4_b > li:nth-child(4){display: none;}
+    }
+
+    @media all and (max-width:480px){   /*가로배치에서 새로배치로 변경된다.*/
+    #header{float: left; width: 100%; height: 130px;
+            background-color: blue;}
+    #header_in{margin: 0 0; padding-top: 20px;
+                   width:100%; height: 130px;
+                   box-sizing: border-box;
+                   background-color: rgb(99, 99, 133);} }
+    #header_in .logo{float: none; margin-left: 0px;                /*모바일에서는 float:none선언*/
+                     margin: 0 auto; 
+                      width: 120px; height: 60px;
+                      background-color: red;}    
+    #header_in .nav{
+                    float: left; margin-right: 0px; margin-top: 20px; width: 100%; height: 20px;
+                    background-color: coral;}
+    #contents_in .con1{ margin: 0 0; 
+                      width: 100%; height: auto;  
+                      background-color: navajowhite;}
+    #contents_in .con1_h{float: none; width: 100%; height: 250px;  
+                        background-color: brown;}   
+    #contents_in .con1_b{float: none; width: 100%; height: auto;
+                          margin-bottom: 20px;}        
+    #contents_in .con1_b > li{float: none; margin-right: 0%; 
+                              margin-bottom: 10px;  
+                              width:100% ; height: 200px;
+                              background-color: aqua;} 
+
+     #contents_in .con2{margin: 0 0;
+                      width: 100%; height: auto;
+                      background-color: navajowhite;}
+     #contents_in .con2 > div{float: none;  margin-right: 0px;
+                              margin-bottom: 20px;
+                             width: 100%; height:250px ;
+                            background-color: cadetblue;}
+    #contents_in .con2 > div:nth-child(3){display: block;}
+
+    #contents_in .con4{ margin: 0 0;  margin-top: 40px;
+                      width: 100%; height: auto;  
+                      background-color: navajowhite;}
+    #contents_in .con4_h{float: none; width: 100%; height: 250px;  
+                       background-color: brown;}   
+    #contents_in .con4_b{float: none; width: 100%; height: auto;
+                          margin-bottom: 20px;}        
+    #contents_in .con4_b > li{float: none; margin-right: 0%; 
+                              margin-bottom: 10px;  
+                              width:100% ; height: 200px;
+                              background-color: aqua;} 
+     #contents_in .con4_b > li:nth-child(4){display: block;}
+
+     #contents_in .con5{margin: 0 0;
+                      margin-top: 40px;
+                      width: 100%; height: auto;
+                      background-color: navajowhite;} 
+    #contents_in .con5 > .group{float:none; width: 100%; height: 400px;} 
+    #contents_in .con5 > .group li:first-child{width: 100%; height: 190px;
+                                                margin-bottom: 20px;
+                                               background-color: crimson;}
+    #contents_in .con5 > .group li:last-child{width: 100%; height: 190px;
+                                             background-color: crimson;} 
+    #contents_in .con5 > a{display: block; float: none; margin-top: 20px;
+                           width: 100%; height: 400px;
+                          background-color: cornflowerblue;}
+
+    #footer{float: left; width: 100%; height: auto;
+            background-color: chartreuse;}
+    #footer_in{margin: 0 0; margin-top: 10px;
+            width:100%; height: auto;
+            background-color: rgb(180, 40, 110);}
+    #footer_in .logo2{float: left; width: 10%; height: 150px;
+                      background-color: cadetblue; display: none;}
+    #footer_in .copyright{float: left; width: 100%; height: 150px;
+                          background-color: darkmagenta;} 
+
+
+    
+  </style>
+</head>
+<body>
+    <div id="wrap">
+      <div id="header">
+        <div id="header_in">
+          <div class="logo">logo</div>
+          <div class="nav">nav</div>
+        </div>
+      </div>
+      <div id="main_img">
+
+      </div>
+      <div id="contents">
+        <div id="contents_in">
+          <div class="con1">
+            <div class="con1_h"></div>
+              <ul class="con1_b">
+                <li>con1_b</li>
+                <li>con1_b</li>
+                <li>con1_b</li>
+                <li>con1_b</li>
+              </ul>
+          </div>
+          <div class="con2">
+            <div>go_btn1</div>
+            <div>go_btn2</div>
+            <div>go_btn3</div>
+          </div>
+          <div class="con3">con3</div>
+
+          <div class="con4">
+            <div class="con4_h"> </div>
+              <ul class="con4_b">
+                <li>con4_b</li>
+                <li>con4_b</li>
+                <li>con4_b</li>
+                <li>con4_b</li>
+              </ul>
+           
+          </div>
+          <div class="con5">
+            <div class="group">
+              <ul>
+                <li><a href=""></a>group01</li>
+                <li><a href=""></a>group02</li>
+              </ul>
+            </div>
+            <a href="">group03</a>
+         
+        </div>
+      </div>
+      <div id="footer">
+        <div id="footer_in">
+          <div class="logo2">logo2</div>
+          <div class="copyright">copyright</div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

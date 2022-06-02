@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: gold;
+      }
+      @media screen and (max-width: 1200px) {
+        body {
+          background-color: blue;
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        body {
+          background-color: green;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        body {
+          background-color: red;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        body {
+          background-color: #ccc;
+        }
+      }
+      @media screen and (max-width: 320px) {
+        body {
+          background-color: #000;
+        }
+      }
+      /*screen:모니터
+      print:프린터에서 출력화면
+      all:screen + print을 다 포함
+      and () -> max=width(최대값) or min-width(최소값)
+      ex) @media all and (min-width:480px) and (max-width:640px){}*/
+    </style>
+  </head>
+  <body></body>
+</html>

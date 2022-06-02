@@ -1,0 +1,66 @@
+transition:[변환속성],[에니메이션 시간];class나 선택상태 변경되어 속성이 변화할 때 상태 변화를 부드럽게 에니메이션함
+
+변환속성 : 변환할 속성 all로 지정되면 모든 속성이 영향받음
+에니메이션 시간 : 에니메이션 시간을 지정함   
+
+transition-delay: 애니메이션의 지연시간을 지정함
+transition-duration : 에니메이션이 실행시간을 지정함
+transition-property : 어떤 속성을 변형할지 지정함
+transition-timing-function : 에니메이션이 속도 형태를 지정함
+  linear:시작에서 끝까지 똑같은 속도로 진행
+  ease:처음에는 천천히 시작하고 점점빨라지다가 마지막엔 천천히 끝남
+  ease-in:시작은 느리게
+  ease-out:느리게 끝냄
+  ease-in-out:느리게 시작하고 느리게 끝냄
+  cubic-bezier:직접베이직 함수를 정의해서 사용
+  n에서 사용할 수 있는 값은 0~1사이입니다
+
+
+
+
+
+animation에니메이션을 지정함
+
+animation-name : 애니메이션 이름을 지정함
+animation-delay: 애니메이션의 지연시간을 지정함
+animation-direction:애니메이션의 진행방향 지정함
+  alternate;반대방향으로 진행
+  normal:원래방향으로 진행
+animation-duration : 에니메이션이 실행시간을 지정함
+animation-iteration-count : 에니메이션이 반복 회수를 지정함
+animation-play-state:애니메이션의 재생상태를 지정함
+  paused, animation-play-state:paused;
+animation-timing-function : 에니메이션이 속도 형태를 지정함
+  linear:시작에서 끝까지 똑같은 속도로 진행
+  ease:처음에는 천천히 시작하고 점점빨라지다가 마지막엔 천천히 끝남
+  ease-in:시작은 느리게
+  ease-out:느리게 끝냄
+  ease-in-out:느리게 시작하고 느리게 끝냄
+  cubic-bezier:직접베이직 함수를 정의해서 사용
+  n에서 사용할 수 있는 값은 0~1사이입니다
+ 
+
+
+keyframes에니메이션의 키프래임을 지정함
+form : 에니메이션의 시작 프래임를 설정함
+to : 에니메이션의 시작 프래임를 설정함중간의 키프레임을 %단위로 지정할수 있음 
+
+
+->ex
+   <style type="text/css">
+        #exampleSub img{
+            -webkit-animation-name:animationSample;
+            -webkit-animation-duration:3s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:ease-in-out;
+        }
+        @-webkit-keyframes animationSample{
+            from{
+              opacity:0.1;
+              -webkit-transform:rotate(0deg);
+            }
+            to{
+              opacity:1.0;
+              -webkit-transform:rotate(360deg);
+            }
+        }

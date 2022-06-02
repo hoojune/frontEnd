@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이터 타입-문자열변수</title>
+</head>
+<body>
+    <h2>데이터 타입</h2>
+<script>
+  'user strict'; 
+
+  const num1 = 10;
+  const num2 = 5;
+ 
+  const str1 = "Hello Javascript"; //문자열형
+  const str2 = "Hello world"; //문자열형
+  const str3 = "10"; //문자열형
+  
+  console.log(num1 + num2 ); //15숫자연산
+  console.log(num1 + str1 ); //문자연산(결합)
+  console.log(num1 + "" ); //문자연산(결합)
+  console.log(typeof(num1) ); //숫자형,문자형등 자료형 표시해줌
+  console.log(typeof(str1) );
+
+  console.log(str1 + " " + str2);//" " = 공백
+  console.log('자바스크립에서는 문자열을 쌍따옴표,따옴표로 둘러싸인 문자의 집합을 의미합니다');
+  console.log(num1 + "+" + num2 + "=" + (num1+num2)); //10 + 5 = 15
+  console.log(`${num1} + ${num2} 연산결과:${num1 + num2}`);//10+5 연산결과 :15
+</script>
+
+    
+</body>
+</html>

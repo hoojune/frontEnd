@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+
+        .box01{ margin: 100px 0 0 100px;
+                width: 300px; height: 300px; margin-bottom:20px;
+                background-color:#ccc;
+                transform: scale(1);}
+       
+         .box02{ margin: 100px 0 0 100px;
+                width: 300px; height: 300px; margin-bottom:20px;
+                background-color:#ccc;
+                transform: rotate(45deg);}  
+                
+         .box03{ margin: 100px 0 0 100px;
+                width: 300px; height: 300px; margin-bottom:20px;
+                background-color:#ccc;
+                transform: skew(-45deg, -15deg);}    
+             
+         .box04{ margin: 100px 0 0 100px;
+                width: 300px; height: 300px; margin-bottom:20px;
+                background-color:#ccc;
+                transform:translate(100px, 50px) ;}   
+                
+          .box05{ margin: 100px 0 0 100px;
+                width: 300px; height: 300px; margin-bottom:20px;
+                background-color:blue;
+                transform:rotate(0deg); transition: 0.5s;}   
+          .box05:hover{transform:rotate(360deg); transition: 0.5s;}            
+         /* 
+             transform:요소의 형태를 변경함
+
+            translate([dx],[dy]) : 지정한 크기 만큼 이동 시킴
+            scale([ds]) : 지정한 배율 만큼 확대함
+            rotate([deg]) : 지정한 각도만큼 회전 시킴
+            skew([degx],[degy]) : 지정한 경사로 기울림
+            a: hover : 사용자가 마우스 커서를 올렸을때 태그 내용 적용
+            a:active : 사용자가 마우스를 클릭시 태그 내용 적용
+            
+            transition : 요소에 추가할 css스타일의 전환효과를 설정하며 추가할 전환효과나 지속될 시간도 설정
+           
+            1) property : 요소에 추가할 전환효과를 설정
+            2) timing-function : 전환효과의 값을 설정(변화되는 속도를 설정)
+                   -linear  : 일정한속도로 전환
+                   -ease : 전환횩과가 천천히 시작했다가 빨라졌다가 천천히 끝난다.
+                            (ease-in, ease-out, ease-in-out등이 있다)
+
+            3) duration : 전환효과의 시간 설정
+            4) delay : 전환효과의 대기시간 설정
+
+
+
+         */
+    </style>
+</head>
+<body>
+
+    <div class="box01" ></div>
+    <div class="box02" ></div>
+    <div class="box03" ></div>
+    <div class="box04" ></div>
+    <div class="box05" ></div>
+</body>
+</html>

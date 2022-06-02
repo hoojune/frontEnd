@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      *{margin:0; padding:0;}
+
+      .box01{width: 500px; height: 200px;margin-bottom: 20px;                                  /*-webkit = 접두사*/
+              background:-webkit-linear-gradient(left,red,green ,blue);
+              }
+      .box02{width: 500px; height: 200px;margin-bottom: 20px;
+              background:-webkit-linear-gradient(right,red,green ,blue);
+              }    
+      .box03{width: 500px; height: 200px;margin-bottom: 20px;
+              background:-webkit-linear-gradient(bottom,red,green ,blue);}
+      .box04{width: 500px; height: 200px;margin-bottom: 20px;
+              background:-webkit-linear-gradient(top,red,green ,blue);
+              background:-ms-linear-gradient(top,red,green ,blue);}
+      .box05{width: 500px; height: 200px;margin-bottom: 20px;
+              background:-webkit-linear-gradient(45deg,red,green ,blue);
+              }
+      .box05-1{width: 500px; height: 200px;margin-bottom: 20px;
+              background:-webkit-linear-gradient(-60deg,red,green ,blue);}
+      .box06{width: 500px; height: 500px;margin-bottom: 20px;
+              background:-webkit-linear-gradient(0deg,red 50%,green 70%,rgb(78,78,175,0.3)100%);}
+      .box07{width: 500px; height: 500px;margin-bottom: 20px;
+
+background: rgb(235,241,246); /* Old browsers */
+background: -webkit-linear-gradient(45deg, rgba(235,241,246,1) 0%, rgba(171,211,238,1) 50%, rgba(137,195,235,1) 51%, rgba(213,235,251,1) 100%); /* FF3.6-15 */
+              /* background:-webkit-radial-gradient(red 50%,green 70% );} */
+
+  /*
+  background:-접두사-linear-gradient(left,color1,color2,color3):왼쪽부터 color1부터 순서대로 정렬됨
+  background:-접두사-linear-gradient(right,color1,color2,color3):오른쪽부터 color1부터 순서대로 정렬됨
+  background:-접두사-linear-gradient(bottom,color1,color2,color3):아래에서부터 color1부터 순서대로 위로 정렬
+  background:-접두사-linear-gradient(top,color1,color2,color3):위에서부터 color1부터 순서대로 아래로 정렬
+  background:-webkit-linear-gradient(+,-X deg(=각도),color1,color2,color3):해당각도에 따라 기울여져서 정렬
+        -->deg(각도):+X deg는 해당각도만큼 기울어져서 정렬 , -x deg는 +때를 밑으로 반대로 접은것과 같은모양이됨 ,0는 기본값
+(x% color1, y% color2 , Z% color3 ):너비를 100%라 했을때 color들이 각퍼센트만큼의 너비가짐 
+                                        X:0~X  ,  Y:X~Y   ,  Z: Y~100%
+  */            
+  </style>
+</head>
+<body >
+  <div class="box01"></div>
+  <div class="box02"></div>
+  <div class="box03"></div>
+  <div class="box04"></div>
+  <div class="box05"></div>
+  <div class="box05-1"></div>
+  <div class="box06"></div>
+  <div class="box07"></div>
+</body >
+</html>

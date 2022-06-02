@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-justify-content</title>
+  <style>
+    .wrapper{width: 500px; height: 300px; margin: 0 auto; 
+                border: 3px solid red;
+                display: flex; /*크기가 오버가 되도 자동으로 맞춰줌*/
+                              }   /*nowrap:줄바꿈안하고 맞춰줌  wrap:줄바꿈함  */
+
+    .wrapper div{width: 100px; border: 1px solid #000;
+                  background-color: aqua;}
+    h2{
+      font-size: 40px; font-weight: 900;
+      padding: 20px;
+    }
+    #container1{justify-content: flex-start; }
+    #container2{justify-content:flex-end;}
+    #container3{justify-content:center;}
+    #container4{justify-content:space-between;}
+    #container5{justify-content:space-around;}
+    #container6{justify-content:space-evenly;}
+  </style>
+</head>
+<body>
+  <h2>flex-justify-content</h2>
+  <h3>justify-content : flex-start</h3> <!--float:left-->
+  <div id="container1" class="wrapper">
+    <div id="box1"><h2>1</h2></div>
+    <div id="box2"><h2>2</h2></div>
+    <div id="box3"><h2>3</h2></div>
+  </div>
+
+  <h3>justify-content : flex-end</h3>  
+  <div id="container2" class="wrapper">
+    <div id="box2-1"><h2>1</h2></div>
+    <div id="box2-2"><h2>2</h2></div>
+    <div id="box2-3"><h2>3</h2></div>
+  </div>
+
+  <h3>justify-content : center</h3> <!--가운데 배치-->
+  <div id="container3" class="wrapper">
+    <div id="box3-1"><h2>1</h2></div>
+    <div id="box3-2"><h2>2</h2></div>
+    <div id="box3-3"><h2>3</h2></div>
+  </div>
+
+  <h3>justify-content : sapce-between</h3> <!--요소들 사이에 여백공간 자동으로 맞춰짐(맨앞뒤 제외)-->
+  <div id="container4" class="wrapper">
+    <div id="box4-1"><h2>1</h2></div>
+    <div id="box4-2"><h2>2</h2></div>
+    <div id="box4-3"><h2>3</h2></div>
+  </div>
+
+  <h3>justify-content : sapce-around</h3> <!--맨앞뒤 포함한 요소들 사이에 여백공간이 자동으로 맞춰짐-->
+  <div id="container5" class="wrapper">
+    <div id="box5-1"><h2>1</h2></div>
+    <div id="box5-2"><h2>2</h2></div>
+    <div id="box5-3"><h2>3</h2></div>
+  </div>
+
+  <h3>justify-content : space-evenly</h3>  <!--around에서 여백의 크기가 일정함 / ms사의 브라우저에 호환안됨-->
+  <div id="container6" class="wrapper">
+    <div id="box2-1"><h2>1</h2></div>
+    <div id="box2-2"><h2>2</h2></div>
+    <div id="box2-3"><h2>3</h2></div>
+  </div>
+
+</body>
+</html>

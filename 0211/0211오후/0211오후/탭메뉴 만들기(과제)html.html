@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+
+        #all{ margin: 50px; width: 400px; height: 600px;
+              background-color: cadetblue; position: relative;}
+        input{ display: none;}/*라디오버튼을 숨김*/
+        label{ display:block; float: left; 
+               width:25%; height: 25px; 
+               background-color: brown;
+               font-size: 12px; font-weight: 600; color: #fff;
+               text-align: center; line-height: 25px;
+               cursor: pointer;}
+         
+        .boxs{ width: 400px; height: 0px; opacity: 0;
+               position: absolute; top: 25px; left: 0;}  /*탭영역 박스에 공통스타일*/  
+        .box01{ background-color: rgb(165, 218, 141); z-index: 400;} 
+        .box02{ background-color: rgb(105, 220, 255); z-index: 300;} 
+        .box03{ background-color: rgb(234, 174, 245); z-index: 200;} 
+        .box04{ background-color: rgb(240, 213, 179); z-index: 100;} 
+
+        /*탭영역 박스에 공통스타일이면서 애니메이션효과*/
+        #all #tab1:checked ~ .box01,
+        #all #tab2:checked ~ .box02,
+        #all #tab3:checked ~ .box03,
+        #all #tab4:checked ~ .box04{opacity: 1; height: 575px; transition: 3s;}
+
+    </style>
+</head>
+<body>
+    <div id="all">
+    <label for="tab1">탭메뉴1</label>
+    <input type="radio" id="tab1" name="tabs" checked>
+
+    <label for="tab2">탭메뉴2</label>
+    <input type="radio" id="tab2" name="tabs">
+
+    <label for="tab3">탭메뉴3</label>
+    <input type="radio" id="tab3" name="tabs"> 
+
+    <label for="tab4">탭메뉴4</label>
+    <input type="radio" id="tab4" name="tabs">
+
+    <div class="box01 boxs">box01</div>
+    <div class="box02 boxs">box02</div>
+    <div class="box03 boxs">box03</div>
+    <div class="box04 boxs">box04</div>
+    </div>
+
+
+</body>
+</html>

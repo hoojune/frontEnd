@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-flex-Wrap</title>
+  <style>
+    #container{width: 500px; height: 300px; margin: 0 auto; 
+                border: 3px solid red;
+                display: flex; /*크기가 오버가 되도 자동으로 맞춰줌*/
+                flex-Wrap:wrap-reverse;}   /*nowrap:줄바꿈안하고 맞춰줌  wrap:줄바꿈함  */
+
+    #container div{width: 200px; border: 1px solid #000;
+                  background-color: aqua;}
+    h2{
+      font-size: 40px; font-weight: 900;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>flex-flex-Wrap</h2>
+  <div id="container">
+    <div id="box1"><h2>1</h2></div>
+    <div id="box2"><h2>2</h2></div>
+    <div id="box3"><h2>3</h2></div>
+  </div>
+</body>
+</html>

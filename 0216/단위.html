@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단위</title>
+  
+  <style>
+    body{font-size: 15px;}  /*기본12px 모바일 16px*/
+    .txt01{font-size: 1em;}  /*1em=15px*/
+    .txt02{font-size: 2em;}
+    .txt03{font-size: 1em;}
+
+
+    .txt01-1{font-size: 1rem;}
+    .txt02-1{font-size: 2rem;}
+    .txt03-1{font-size: 1rem;}
+
+    .txt01-2{font-size: 1vw;}
+    .txt02-2{font-size: 10vw;}
+    .txt03-2{font-size: 100vw;}
+
+    .txt01-3{font-size: 1vh;}
+    .txt02-3{font-size: 10vh;}
+    .txt03-3{font-size: 100vh;}
+    /*vamx(최대값),vmin(최솟값)*/
+  </style>
+</head>
+<body>
+  <h2>em 단위</h2>
+  웹페이지의 단위는?
+  <div class="txt01">1.웹페이지의 단위는?-> 1em=15px
+  <div class="txt02">1.웹페이지의 단위는? ->2em=30px
+  <div class="txt03">1.웹페이지의 단위는? ->1em=30px  em=부모의 글자크기를 100%기준으로함</div>
+ </div> 
+</div>
+
+  <h2>rem 단위</h2>
+  <div class="txt01-1">1.웹페이지의 단위는?-> 1rem=15px (루트 em)
+    <div class="txt02-1">1.웹페이지의 단위는?-> 1rem=30px
+      <div class="txt03-1">1.웹페이지의 단위는?-> 1rem=15px rem=최상위의 글자크기를 100%기준으로함</div>
+  </div> 
+</div>
+
+<h2>vw 단위</h2>
+<div class="txt01-2">1.웹페이지의 단위는?->  (보이는화면기준(%)으로 크기바뀜)
+    <div class="txt02-2">1.웹페이지의 단위는?-> 글자 한자기준 (가로세로 10%)
+      <div class="txt03-2">1.웹페이지의 단위는?-> 글자 한자기준(가로세로100%) </div>
+</div>
+</div>
+
+<h2>vh 단위</h2>
+<div class="txt01-3">1.웹페이지의 단위는?->  (보이는 화면기준 높이(%)에 따라 크기바뀜)
+  <div class="txt02-3">1.웹페이지의 단위는?-> 
+    <div class="txt03-3">1.웹페이지의 단위는?->  </div>
+</div>
+</div>
+
+
+
+</body>
+</html>

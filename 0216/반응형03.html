@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형03</title>
+  <style>
+    *{margin: 0; padding: 0;}
+
+
+    .box01{width: 100%; height: 200px;  /*고정값이면 1500px이하시 스크롤생김*/   /*width가 100%면 스크롤 안생김*/
+        background-color: blue;}
+    .box01-1{float: left; width: 500px; height: 200px; background-color: blueviolet;}
+    .box01-2{float: left; width: 500px; height: 200px; background-color: brown;}
+
+    @media screen and (max-width:1000px){
+    .box01-1{float: left; width: 50%; height: 200px; background-color: blueviolet;}
+    .box01-2{float: left; width: 50%; height: 200px; background-color: brown;}
+    }
+    @media screen and (max-width:1500px){}
+    @media screen and (max-width:1200px){}
+    @media screen and (max-width:1100px){}
+    @media screen and (max-width:1000px){}
+    /* @media screen and (max-width:1000px){} ->생략 */
+
+    @media screen and (max-width:480px){}   /*<-안드로이드화면크기*/
+    @media screen and (max-width:320px){}    /*<-아이폰화면크기*/
+  </style>
+</head>
+<body>
+    <div class="box01">
+      <div class="box01-1"></div>
+      <div class="box01-2"></div>
+    </div>
+</body>
+</html>
+
+pc=1024~1920
+15인치이하 노트북은 모바일로 선언
+
+미디어쿼리:화면의 크기에 알맞은 스타일시트 선언해주는것
