@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼항연산자</title>
+</head>
+<body>
+    <h2>성적표 관리 프로그램</h2>
+    <script>
+      'user strict'; 
+        
+        /*문제 : 국어, 수학 ,영어 점수에서 합점수와 평균점수를 구하고
+                학생성명도 출력
+                각각 과목별 점수를 출력하고
+                총점과 평균점수를 함께 따로따로 출력*/
+
+        const korea = Number(prompt('국어점수를 입력하세요')) ;
+        const math = Number(prompt('수학점수를 입력하세요')) ;
+        const english = Number(prompt('영어점수를 입력하세요')) ;
+     
+        const name = "성호준";
+        const total = korea + math + english
+        const avg = total /3;
+        
+        document.write(`<h2>${name}님 성적표 </h2>`);
+        document.write(`<p>국어점수 : ${korea}점 </p>`);
+        document.write(`<p>수학점수 : ${math}점 </p>`);
+        document.write(`<p>영어점수 : ${english}점 </p>`);
+        document.write(`<p>총점 : ${total}점 </p>`);
+        document.write(`<p>평균 : ${avg}점 </p>`);
+
+
+
+  </script> 
+</body>
+</html>

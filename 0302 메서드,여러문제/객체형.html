@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체형 데이터</title>
+</head>
+<body>
+    <h2>객체형 데이터타입</h2>
+    <script>
+      'user strict'; 
+
+      const dog = {"name": "루시" ,"age" : 10, "weight": 2.5}
+      console.log(dog);
+
+      console.log(`이름: '${dog.name}`);
+      console.log(`나이: '${dog.age}`);
+
+      dog.weight =  3 
+      console.log(`몸무게: ${dog.weight}`); //value는 변경가능
+      // const dog1 = {"name":"뽀미","age":5,"weight":6}; //const는 새로운 객체
+      console.log(dog);
+    </script> 
+</body>
+</html>

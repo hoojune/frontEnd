@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수01</title>
+</head>
+<body>
+  <script>
+    'use strict';
+    //함수선언식
+    function func1(){
+      console.log('func1이 호출되었습니다');
+    }
+    //함수 표현식
+    const func2 = function(){
+      console.log('func2이 호출되었습니다');
+    }
+    //호출은 중복가능
+    func1();
+    func2(); 
+    func2();
+    func2();
+
+
+  </script>
+</body>
+</html>

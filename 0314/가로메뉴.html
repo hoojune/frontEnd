@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가로메뉴</title>
+    <style>
+        *{margin: 0; padding: 0; border: 0;}
+        ul,li{list-style: none;}
+        a{text-decoration: none;}
+
+        #menu{margin: 50px; width: 500px; height: 25px; border: 1px solid #000;}
+        .main_mn > li{float: left; width: 100px; border-right: 1px solid #000;
+                        box-sizing: border-box; position: relative;}
+        .main_mn > li >a{display: block; background-color: aliceblue; color: #000;
+                        text-align: center; font-size: 15px;}
+        .main_mn > li.act > a{background-color: rgb(72, 133, 112); color: #000;
+                             }  
+        .main_mn > li:last-child{border-right: 0;}
+
+        .sub_mn{position: absolute; top: 25px; left: 0;
+                width: 100%; text-align: center; border: 1px solid#000;
+                border-top: 0px; box-sizing: border-box;}
+        .sub_mn li{height: 25px;}
+        .sub_mn li a{display: block; height: 25px; text-align: center;}
+        .sub_mn li:hover a{background-color: brown; color: #ccc;}
+
+    </style>
+    <script src="./js//jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sub_mn').hide();
+
+            $('.main_mn > li').hover
+            (function(){
+               // $(this).find('.sub_mn').fadeIn();
+                $(this).find('.sub_mn').stop().show().scc({opacity:'0'}).animate({opacity:'1'});
+                $(this).addClass('act');
+            },
+            function(){
+                $('.sub_mn').fadeOut();
+                $(this).removeClass('act');
+            });
+        });
+        </script>
+    
+</head>
+<body>
+    <div id="menu">
+        <ul class="main_mn">
+            <li><a href="#">mainmn</a>
+            <ul class="sub_mn">
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+            </ul>
+        </li>
+        <li><a href="#">mainmn</a>
+            <ul class="sub_mn">
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+            </ul>
+        </li>
+        <li><a href="#">mainmn</a>
+            <ul class="sub_mn">
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+            </ul>
+        </li>
+        <li><a href="#">mainmn</a>
+            <ul class="sub_mn">
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+            </ul>
+        </li>
+        <li><a href="#">mainmn</a>
+            <ul class="sub_mn">
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+                <li><a href="#">submenu</a></li>
+            </ul>
+        </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메서드1</title>
+    <script src="js/jquery.js"></script>
+<style>
+    .menu > li{cursor: pointer;}
+    .menu > li:hover{color: blue;}
+
+    div{border: 3px solid #000;
+        margin: 10px;}
+
+</style>
+</head>
+
+<body>
+    <!--eq(): 형제요소중(ul - li)에서 몇번째인지 
+        ,index(): 형재요소 중에서 몇번인지 일련번호를 추출 (0)부터 시작-->
+
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+
+    <div>box1</div>
+    <div>box2</div>
+    <div>box3</div>
+    <div>box4</div>
+    <div>box5</div>
+    <script>
+        $(document).ready(function(){
+            $('.menu > li').click(function(){
+               var i = $(this).index();
+
+                 $('div').css({height:'0px' , padding:'10px'});  //마우스 이벤트가 적용되었을떄 높이가 0으로 처리됨
+                $('div').eq(i).css({height:'50px'}); //선택된 버튼에 번호값을 갖고와서 해당되는 div에 스타일적용
+
+                
+
+                console.log(`현재 선택된 버튼의 번호: ${i}`);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>05_가로값과 세로값</title>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <!--배경색깔설정,인터페이스 설정시 필요-->
+        <style>
+             * { margin:0; padding:0; }
+            #wrapper{position: absolute; left: 100px; top: 100px;
+                 width: 500px; height: 500px;
+                    border: 3px solid blue;}
+            #box{position: absolute; left: 50px; top: 50px;
+                width: 100px; height: 100px;
+                background-color: aqua;}
+        </style>
+        <script>
+            $(document).ready(function(){
+              $('#box').draggable({
+                  drag:function(){
+                        $('.ol').text($('#box').offset().left);
+                        $('.ot').text($('#box').offset().top);
+                        $('.pl').text($('#box').position().left);
+                        $('.pt').text($('#box').position().top);
+                  }
+                  })
+            });
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <span>offset().left = </span><span class="ol"></span><br>
+            <span>offset().top = </span><span class="ot"></span><br>
+            <span>posiion().left = </span><span class="pl"></span><br>
+            <span>posiion().top = </span><span class="pt"></span>
+        </div>
+
+        <div id="wrapper">
+            <div id="box"><span>box</span></div>
+        </div>
+    </body>
+</html>

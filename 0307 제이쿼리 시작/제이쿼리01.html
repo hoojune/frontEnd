@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 라이브러리 연결</title>
+  <script src="./js/jquery.js"></script> <!--./현재폴더--> 
+  <script></script>
+  <style>
+    *{margin: 0; padding: 0;}
+    .box{margin: 100px;
+      width: 150px; height: 30px; 
+      background-color: rgb(21, 31, 31);
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center; line-height: 30px;
+      color: #fff;}
+  </style>
+  
+</head>
+<body>
+  <script>
+/*제이쿼리
+  자바스크립트를 조금더 쉽게 사용할수 있도록 라이브러리로 되어있음
+  명령어들이 모듈화(함수화)되어있음
+  1.애니메이션 기능*/
+      //대상.이벤트,함수,실행문
+      //$() 대상선택 -->제이쿼리함수
+   // $('class명') ,$('id명') ,$('태그명') ....그외 html이나 스타일시트에서 사용했던 선택자 모두사용가능
+    $(document).ready(function(){ //현재문서 : $(document).ready
+   $('.box').click(function(){
+    //$('.box')
+    //$(this).css({width:"300px"})   //this:이벤트가 적용된 대상
+    $(this).animate({width:"300px"},1000) //1000:1s
+   });
+   $('.box').mouseout(function(){  //마우스가 밖으로 나갔을때
+    $(this).animate({width:"150px"},1000)
+   });
+  });
+  </script>
+
+  <div class="box">box</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        body{margin: 20px auto;
+            padding: 0; width: 620px; 
+            background: #192839;}
+        .thumbs{float: left; width: 100px;}
+        .thumbs img{margin-bottom: 3px; padding: 5px; border: 1px solid #ccc;}
+        .thumbs img:hover{border-color: #ef4018;}
+
+        #largeImg{margin-left: 110px; padding: 5px; width: 500px; height: 280px;
+                    border: 1px solid #ccc;}
+    </style>
+</head>
+<body>
+    <div class="thumbs">    
+        <a href="images/pic1.jpg" title="image1"><img src="images/th_pic1.jpg" /></a>
+        <em>Lorem Ipsum is simply dummy text of the pdrinting and typesetting industry.</em>
+
+        <a href="images/pic2.jpg" title="image2"><img src="images/th_pic2.jpg" /></a>
+        <em>Lorem Ipsum is simply dummy tely dummy thely dummy tegxt of thely try. Sed facilisis, sem a luctus bibendum, dui risus pellentesque velit, quis tempor magna sem vel justo. Etiam eget ipsum ante.</em>
+
+        <a href="images/pic3.jpg" title="image3"><img src="images/th_pic3.jpg" /></a>
+        <em>Lorem Ipsum is simply dummy.</em>
+    </div>
+
+    <div id="largeImg"><img src="images/pic1.jpg" alt="image1"></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#" style="color:#fff">menu</a>
+    <script>
+            $('.thumbs > a').click(function(e){ //e : 이벤트
+                e.preventDefault();//a 태그에 href의 이벤트를 초기화
+                var path = $(this).attr('href'); //해당 대상의 속성값을 읽음
+                //attr()메서드 : 지정된대상의 속성값을 읽거나 수정하는 메서드
+
+                if(path != $('#largeImg img').attr("src")){ //똑같은것을 누르면 애니메이션 적용안됨
+ 
+                $('#largeImg img').attr({src: path});                
+                $('#largeImg img').css({opacity:0}).stop().animate({opacity:1}, 1000); //서서히 나타남
+            }
+            });
+
+    </script>
+
+</body>
+</html>

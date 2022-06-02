@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수04</title>
+  <script>
+     'use strict';
+    
+     function plus(num1,num2){
+       return num1 + num2;
+     }
+     function minus(num1,num2){
+       return num1 - num2;
+     }
+     function mul(num1,num2){
+       return num1 * num2;
+     }
+     function div(num1,num2){
+       return num1 / num2;
+     }
+  </script>
+</head>
+<body>
+  <script>
+    'use strict';
+      const num1 = Number(prompt('첫번쨰 숫자를 입력하세요'));
+      const num2 = Number(prompt('두번쨰 숫자를 입력하세요'));
+
+      let result = plus(num1 ,num2);
+      console.log(`${num1}+${num2} = ${result}`);
+
+      let result2 = minus(num1 ,num2);
+      console.log(`${num1}-${num2} = ${result2}`);
+
+      let result3 = mul(num1 ,num2);
+      console.log(`${num1}*${num2} = ${result3}`);
+
+      let result4 = div(num1 ,num2);
+      console.log(`${num1}/${num2} = ${result4}`);
+
+  </script>
+</body>
+</html>

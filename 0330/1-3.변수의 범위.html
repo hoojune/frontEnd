@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 범위</title>
+</head>
+<body>
+    
+    <script>
+       'use strict'; 
+       let num1 = 10; //전역변수
+
+       function fun1(){
+           console.log(num1);//10
+           num1 = 20;//초기화
+       }
+       fun1();//함수호출후
+       console.log(num1);//20
+
+       let num2 = 30 //전역변수
+       function fun2(){
+           let num2 =40;//지역변수
+           console.log(`num2는 : ${num2}`);//40
+       }
+       fun2();
+       console.log(num2);//30
+
+       let num3 =50;//지역변수
+       if(num3 ==50){
+           num3 = 100; //전역변수(값을 재대입) : 50 -> 100
+           console.log(`num3 : ${num3}`);
+       }
+       let num4 = 50 //전역변수
+       if(num4 == 50){
+           let num4 =100;
+           console.log(`num4 : ${num4}`); //100
+       }
+       console.log(`num4 : ${num4}`); //50
+    </script>
+</body>
+</html>

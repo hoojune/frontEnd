@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체형 데이터</title>
+</head>
+<body>
+    <h2>암시적 타입변환</h2>
+    <script>
+      'user strict'; 
+
+      const a =10 + "문자열"; //문자열로 형변환됨
+      console.log(a);
+      const b ="3" * "5";   //15 , 문자열끼리도 형변환하여 계산됨
+      console.log(b);
+      const c =10 - "문자열";  //캐스팅이 안됨 nan
+      console.log(c);
+      const d ="10" - 20;  // -10
+      console.log(d);
+
+      <h2>명시적 타입 변환</h2>
+
+      const num1 = "10";
+      const num2 ="5";
+      console.log(`현제 num1의 타입: ${typeof num1}`);
+      console.log(`num1 + num2 = ${num1 + num2}`); //105
+
+    </script> 
+</body>
+</html>

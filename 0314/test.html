@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>01_너비와높이_읽어오기</title>
+        <script src="js/jquery.js"></script>
+        <style>
+             body { margin:0; padding:0; }
+        
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+              $('.test').css('width',$(window).width() - 50 );
+              $('.test').css('height',$(window).height() - 50 );
+                $(window).resize(function(){
+                    $('.test').css('width' , $(window).width() -50 );
+                    $('.test').css('height',$(window).height() - 50 );
+                })
+            });
+        </script>
+    </head>
+    <body>
+       <div class="test" style="border:1px solid gray;">
+        jquery로 넓이,높이 조절
+    </div>
+        
+    </body>
+</html>

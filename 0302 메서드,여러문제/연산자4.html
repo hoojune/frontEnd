@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>증감연산자</title>
+</head>
+<body>
+    <h2>증감연산자</h2>
+    <script>
+      'user strict'; 
+        let num1 =10;
+        console.log(`현재 num1의값 : ${num1}`); //10
+        console.log(` ++num1의값 : ${++num1}`); //11
+        console.log(`현재 num1의값 : ${num1}`); //11
+        console.log(`num1++의값 : ${num1++}`); //11(12)
+        console.log(`현재 num1의값 : ${num1}`); //12
+
+        let num2 =10;
+        ++num2;
+        console.log(`현재 num2의값 : ${num2}`); 
+        num2++;
+        console.log(`현재 num2의값 : ${num2}`); 
+
+        let num3 = ++num2;
+        console.log(`현재 num2의값 : ${num2},현재 num3의 값 : ${num3}`);
+
+        let num4 = num2++;
+        console.log(`현재 num2의값 : ${num2},현재 num4의 값 : ${num4}`);
+
+        
+
+      // 전위연산자: ++ , -- a .   후위연산자: a --,++ 
+      a =10; //++a =11   , a++ 10(11) a==11
+      b =20;
+      c = 3;
+
+      document.write("자바스크립트 예제"+"<br>");
+
+      document.write(++a + "<br>"); //11
+
+      document.write(a++ +"<br>"); // 11(12)
+
+      document.write(c++ +"<br>"); //3(4)
+
+      document.write(++a + b++ +"<br>"); //12+1 +20 = 33
+
+      document.write(++a + ++b +"<br>"); //14 + 21+1 =36
+
+
+      // for(let i =0; i > 100 ; i++) {}
+  </script> 
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션01</title>
+    <style>
+        *{margin: 20px; padding: 0; border: 0;}
+
+        input{width: 100px; height: 50px;}
+
+        .box , .box1 ,.box2{width: 150px; height: 150px; 
+            border:  3px solid #000;}
+  
+
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        /*    $('.box').css({display:"none"}); 
+
+         $('.toggle_b').click(function(){
+                    $('.box1').toggle(600);
+                });
+
+        /*toggle()은 show() / hide() 다 가능한데 단 현재 보이는상태라면
+             숨김이 되고 숨긴상태라면 보임이 되는 동작이다.*/
+
+            $('.btn_s').click(function(){
+                $('.box').show(1000);
+            });
+
+            $('.btn_e').click(function(){
+                $('.box').hide(1000); 
+            });
+
+           
+            /*$(대상).css({속성1:속성값})
+                css()메서드는 대상에게 스타일속성을 적용할때 시용
+
+            show() /hide()는 보이고 숨김의 애니메이션 메서드*/
+
+          /*  $('.btn_s').click(function(){
+                $('.box').slideUp();
+            });
+
+            $('.btn_e').click(function(){
+                $('.box').slideDown();
+            });*/
+                //두개의 단어가 붙으면 뒤 단어 첫글자는 대문자 : 낙타표기법
+
+                /*slideUp(0) / slideDown()은 객체높이를 위에서 커졌다 작아졌다 동작 -> 보통시간안줌*/
+
+                $('.btn_s').click(function(){
+                    $('.box').fadeIn(2000);
+                });
+                $('.btn_e').click(function(){
+                    $('.box').fadeOut(2000);
+                });
+
+                /*fadeIn() / fadeOut() 서서히 나타났다가 사라지는 동작*/
+
+                $('.FadeTo_b').click(function(){
+                    $('.box2').fadeTo(600,0.2) //(시간,투명도)
+                })
+                /*fadeTo(x,Y): 투명도Y가 되는데 걸리는시간이X로 동작 */
+
+            })
+                
+    </script>
+</head>
+<body>
+    <div id="control">
+        <input type="button" value="show" class="btn_s"/>
+        <input type="button" value="hide" class="btn_e"/>
+        <input type="button" value="toggle" class="toggle_b"/>
+        <input type="button" value="fadeTo" class="FadeTo_b"/>
+    </div>
+    <div class="box">box</div>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+</body>
+</html>

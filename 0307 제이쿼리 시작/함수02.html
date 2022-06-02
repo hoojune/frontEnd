@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수02</title>
+</head>
+<body>
+  <script>
+    'use strict';
+    
+    function func1(num){
+      console.log(`전달받은 매개변수값은 ${num} 입니다`);  //객체가 된다.
+    }
+    //func1(10);
+    //func1(5);
+
+    function func2(start,end){
+      let sum =0;
+      for(let i = start ;i <= end ; i++){
+        sum += i;
+      }
+      console.log(`${start}부터 ${end}까지의 총합은 ${sum}입니다`)
+    }
+    let start =100, end =1;
+    //func2(end,start); //매개변수에 이름과 상관없이 순서대로 대입된다.
+    //func2(1,100);
+   // func2(10,20);
+
+    function func3(num1=1 ,num2 =2){
+      console.log(`${num1} + ${num2} = ${num1 + num2}`)
+      console.log(`${num1} - ${num2} = ${num1 - num2}`)
+      console.log(`${num1} * ${num2} = ${num1 * num2}`)
+      console.log(`${num1} / ${num2} = ${num1 / num2}`)
+    }
+    //func3(5,3); 
+    //먼저 선언된 매개변수의 값을 무시하고 호출하면서 보낸 매개변수값을 우선한다.
+    //func3();
+
+    function func4(num1,num2,...num3){ 
+    //...num3는  지정된 매개변수에 나머지값을 저장   ...이 없으면 나머지값은 다날라감
+      console.log(`num1의 값 : ${num1}`);
+      console.log(`num2의 값 : ${num2}`);
+      console.log(`num3의 값 : ${num3}`);
+    }
+   // func4(100,90,40,60,80,90,30);
+
+  function func5(...score){
+    for(let i of score){
+      console.log(i);
+    }
+  }
+  func5(100,90,40,60,80,90,30);
+  
+  </script>
+</body>
+</html>

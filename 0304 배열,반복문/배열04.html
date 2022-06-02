@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <h2>배열04</h2>
+    <script>
+       'use strict';
+       let arr1 = ['김사과', 20, 160.5, true];
+       console.log(arr1);
+       //console.log("arr1의 배열입니다" + arr1); //문자열 ''
+       //console.log('arr1의 배열입니다 ${arr1}'); //객체형 ``
+
+       //배열요소 추가
+       arr1.push('여자');
+       console.log(arr1);
+
+       //배열요소 삭제
+       arr1.shift();
+       console.log(arr1);
+
+       //새로운 배열을 생성
+       let arr2 = ['김사과', '서울', '학생'];
+
+       //두개의 배열을 합치기
+       let arr = arr1.concat(arr2);
+       // 2개의 배열이 새로이 저장될 배열명 = 기준이 될 배열1.concat(배열1에 들어갈 배열)
+       console.log(arr);
+
+       arr = arr.join(" ");
+       console.log(arr);
+
+       arr2 = arr2.join("|");
+       console.log(arr2);
+
+
+       let arr3 = ['c', 'b', 'a', 'z', 'o'];
+
+       arr3.sort();
+       console.log(arr3);
+
+       arr3.reverse();
+       console.log(arr3);
+    </script>
+</body>
+</html>

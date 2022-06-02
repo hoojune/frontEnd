@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문_중첩반복문</title>
+</head>
+<body>
+    <h2>중첩반복문1</h2>
+    <script>
+        'user strict';
+        let i = 1, j = 1;
+       
+        while(i<=3){
+            console.log(`현재 i의 값 : ${i}`);
+                while(j<=5){
+                    console.log(`------> 현재 j의 값 : ${j}`);
+                    j++;
+                }
+                j=1;
+            i++;
+        }
+    </script>
+</body>
+</html>

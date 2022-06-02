@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>01_너비와높이_읽어오기</title>
+        <script src="js/jquery.js"></script>
+        <style>
+            * { margin:0; padding:0; }
+            #wrapper {width: 2000px; height: 3000px;}
+            #wrapper > div{ position: fixed; top: 0; left: 0;}
+
+        </style>
+        <script>  
+            $(document).ready(function(){
+              // $(Window).scroll(function({})) / scroll : 페이지 이벤트
+              //.on(): 한개의 대상에 여러개의 이벤트를 줄수 있다.
+              $(Window).on('scroll' , function(){
+                  var sl = $(Window).scrollLeft(); 
+                  var st = $(Window).scrollTop(); 
+
+                  $('#wrapper > div#info').children('#scrollLeft').text(sl);
+                  $('#wrapper > div#info').children('#scrollTop').text(st);
+                  //children : 바로 밑의 자식 것만 선택함
+
+                  $('.btn').click(function(){
+                      $(Window).scrollLeft(parseInt($('.xscroll').val())) //.val() : 초기값
+                      $(Window).scrollTop(parseInt($('.yscroll').val()))
+                  })
+              })
+            });
+
+        </script>
+    </head>
+    <body>
+        
+        <div id="wrapper">
+            <div id="info">
+                 <span>scrollLeft = </span><span id="scrollLeft">0</span><br>
+                <span>scrollTop = </span><span id="scrollTop">0</span>
+            </div>
+            <div id="form" style="margin-top: 60px;">
+                <span>이동시킬 스크롤의 위치값을 입력해 주세요.</span><br>
+                <input type="text" class="xscroll">
+                <input type="text" class="yscroll">
+                <input type="button" class="btn" value="입력">
+            </div>
+        </div>
+    </body>
+</html>

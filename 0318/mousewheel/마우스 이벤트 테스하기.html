@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트</title>
+
+    <!--일반 홈페이지에서는 쓸수 없고,이벤트페이지에서만 쓴다. , 컨텐츠가 화면 한칸을 차지해야한다.-->
+    <style>
+        *{margin: 0; padding: 0;}
+
+        #wrap{ width: 100%;}
+        #wrap > div{ width: 100%; height: 100vh;}/*공통크기  100vh : 화면전체크기*/
+        /*내부의 div에는 마우스 휠이벤트가 적용되지 않는다. */
+        #wrap > div.con1{ background-color: rgb(95, 97, 10);}
+        #wrap > div.con2{ background-color: rgb(242, 255, 127);}
+        #wrap > div.con3{ background-color: rgb(185, 255, 127);}
+        #wrap > div.con4{ background-color: rgb(88, 98, 241);}
+        #wrap > div.con5{ background-color: rgb(215, 90, 231);}
+
+    </style>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+</head>
+<body>
+    <div id="wrap"> 
+        <div class="con1">con1</div>
+        <div class="con2">con2</div>
+        <div class="con3">con3</div>
+        <div class="con4">con4</div>
+        <div class="con5">con5</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            //높이를 잡아주는 부분
+        var ht = $(window).height();//기본화면의 높이값 (고정값)
+        $('#wrap > div').height(ht);//높이값이 화면 크기 
+        /*resize속성은 사용자가 요소의 크기를 조정할 수 있는지 여부(및 방법)를 정의합니다 .
+         resize속성은 overflow="visible"인 인라인 요소나 블록 요소에는 적용되지 않습니다. 따라서 오버플로가 "스크롤", "자동" 또는 "숨김"으로 설정되어 있는지 확인하십시오.*/
+
+        $(window).on('resize', function () {
+            var ht = $(window).height();//수시로 화면크기 바뀔때 높이값(유동적값)
+            $('#wrap > div').height(ht);
+        });
+
+
+        $('#wrap > div').on('mousewheel', function (event, delta) {//매개변수
+            //delta : -1 , 0 ,1
+            if (delta > 0) {//1
+                var prev = $(this).prev().offset().top;//자기자신의 이전div의 top
+                $('html, body').stop().animate({ 'scrollTop': prev }, 1000, 'easeOutExpo');//이동 ,  $('html, body')화면 
+            } else if (delta < 0) {//-1
+                var next = $(this).next().offset().top; //자기자신의 다음div의 top으로 이동 
+                $('html, body').stop().animate({ 'scrollTop': next }, 1000, 'easeOutExpo');
+            }
+        });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" alt="">
+    <link rel="stylesheet" href="css/layout.css" alt="">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="js/submn.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div id="header_in">
+                <h1 class="logo"><img src="images/logo.png" alt=""></h1>
+                <nav class="main_nav">
+                    <ul class="main_mn">
+                       <li><a href="#">탑</a>
+                        <ul class="sub_mn">
+                            <li><a href="#">블라우스</a></li>
+                            <li><a href="#">티</a></li>
+                            <li><a href="#">셔츠</a></li>
+                            <li><a href="#">니트</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#">아우터</a>
+                        <ul class="sub_mn">
+                            <li><a href="#">자켓</a></li>
+                            <li><a href="#">코트</a></li>
+                            <li><a href="#">가디건</a></li>
+                            <li><a href="#">머플러</a></li>
+                        </ul>
+                        </li>
+                       <li><a href="#">팬츠</a>
+                        <ul class="sub_mn">
+                            <li><a href="#">청바지</a></li>
+                            <li><a href="#">짧은바지</a></li>
+                            <li><a href="#">긴바지</a></li>
+                            <li><a href="#">레깅스</a></li>
+                        </ul>
+                       </li>
+                       <li><a href="#">악세서리</a>
+                        <ul class="sub_mn">
+                            <li><a href="#">귀거리</a></li>
+                            <li><a href="#">목걸이</a></li>
+                            <li><a href="#">반지</a></li>
+                            <li><a href="#">팔찌</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </nav> 
+                
+            </div>
+        </header>
+        <div id="main_img">
+            <ul class="list">
+                <li>이미지 01</li>
+                <li>이미지 02</li>
+                <li>이미지 03</li>        
+            </ul>
+            <ul class="btns">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <script>
+           
+        </script>
+
+        <section id="contents">
+            <article id="c_1">
+               <div class="border">
+                    <ul class="tabs">
+                        <li>border</li>
+                        <li>gallery</li>
+                    </ul>
+               </div> 
+               <div class="gallery">
+                    <ul class="tabs">
+                        <li>border</li>
+                        <li>gallery</li>
+                    </ul>
+               </div> 
+               <script>
+                   $(document).ready(function(){
+                    $('#c_1 > div').hide();
+                    $('#c_1 > div').eq(0).show();
+
+                    $('.tabs > li').click(function(){
+                          var tabNumber = $(this).index();
+                          $('#c_1 > div').hide();
+                          $('#c_1 > div').eq(tabNumber).show();
+                          //console.log('tabNumber:'+ tabNumber);
+                    })
+                   });
+               </script>
+            </article>
+            <article id="c_2">
+               <button class="popup">팝업창열기</button>
+               <script>
+                   $(document).ready(function(){
+                          $('.popup').click(function(e){
+                               e.preventDefault();
+                               $('#c_2').prepend('<div class="win"><a href="" class="close">창닫기</a></div>')
+                          });
+
+                          $('.close').click(function(e){
+                                e.preventDefault();
+                                $('.win').remove();
+                                //$('.win').css({display:none})
+                          });
+                   });
+               </script>
+            </article>
+            <article id="c_3">
+
+            </article>
+        </section>
+        <footer id="footer">
+            <div id="footer_in">
+                <h1 id="logo2"><img src="images/logo.png"></h1>
+            <address>
+
+            </address>
+            <div id="sns">
+
+            </div>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>

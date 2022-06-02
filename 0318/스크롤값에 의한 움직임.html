@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤2</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+  
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        a{text-decoration: none;}
+
+        #wrap{ width: 100%;}
+        #wrap > div{ width:100%; height:1000px; /*div크기 같아야하므로*/
+                      position:relative;}/*이동하는box각각의 기준*/
+        .con01{ background-color:#C60;}
+        .con02{ background-color:#F60;}
+        .con03{ background-color:#F93;}
+        .con04{ background-color:#CCF;}
+         /*공통적으로 box라는 class명을 주었으므로 선언*/
+        .box{width:100px; height:100px;
+            border:2px solid #000;
+            }
+        /*이동하는 박스들의 위치를 다르게 잡음*/
+        .box1-1{ position:absolute; top:200px; left:500px;}
+        .box1-2{ position:absolute; top:500px; left:100px;}
+        .box1-3{ position:absolute; top:700px; left:1200px;}
+
+        .box2-1{ position:absolute; top:200px; left:500px;}
+        .box2-2{ position:absolute; top:500px; left:100px;}
+        .box2-3{ position:absolute; top:700px; left:1200px;}
+
+        .box3-1{ position:absolute; top:200px; left:500px;}
+        .box3-2{ position:absolute; top:500px; left:100px;}
+        .box3-3{ position:absolute; top:700px; left:1200px;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+       
+        <div class="con01">
+            <div class="box1-1 box">box1-1</div>
+            <div class="box1-2 box">box1-2</div>
+            <div class="box1-3 box">box1-3</div>
+        </div>
+        <div class="con02">
+            <div class="box2-1 box">box2-1</div>
+            <div class="box2-2 box">box2-2</div>
+            <div class="box2-3 box">box2-3</div>
+        </div>
+         
+            <div class="con03">
+            <div class="box3-1 box">box3-1</div>
+            <div class="box3-2 box">box3-2</div>
+            <div class="box3-3 box">box3-3</div>
+        </div>
+        <div class="con04">
+
+        </div>
+    </div>
+    <script>
+       $(document).ready(function() {
+            
+            var scene01Num = 1;  
+            var scene02Num = 1;
+            var scene03Num = 1;
+            //스크롤은 한쪽방향으로 이벤트 적용이 되었어 한번실행 되돌아 애니메이션 적용안됨
+            // scene01Num = 1; 일때는 스크롤이 내려가는 상태로 정의
+           //  scene01Num = 0; 일때는 스크롤이 올라가는 상태로 정의
+
+          $(window).scroll(function(){//window 에 scroll이 발생했을때 실행하겠다
+            var scrollTop = $(document).scrollTop() //하나의객체로 선언해 길이를 줄임
+
+              if(scrollTop >200 && scene01Num == 1){//내려갈떄
+                scene01Num = 0; //올라갈때 0으로 바뀜
+
+                //하나의 대상에 2개의 애니메이션 설정
+                //스크롤이 200보다 높은지점이라면
+                //해당 box들이 투명도1인상태로 top: 800점까지 이동
+                //이동후 각박스마다  딜레이후
+                //1초의 시간을 가지고 투명도가 0이 된다.
+                $(".box1-1").delay(0).stop().animate({
+                            opacity: 1,
+                            top: "800px"
+                }, 1000, function() {
+                $(".box1-1").delay(200).stop().animate({
+                             opacity: 0
+                            }, 1000);
+                });
+
+                $(".box1-2").delay(400).stop().animate({
+                            opacity: 1,
+                            top: "800px"
+                }, 1000, function() {
+                $(".box1-2").delay(200).stop().animate({
+                                opacity: 0
+                            }, 1000);
+                });
+
+                $(".box1-3").delay(800).stop().animate({
+                            opacity: 1,
+                            top: "800px"
+                }, 1000, function() {
+                $(".box1-3").delay(200).stop().animate({
+                                opacity: 0
+                            }, 1000);
+                });
+                
+                //없어졌던 박스들이 원래 상태로 돌아가는 애니메이션
+                //스크롤이 200보다 작은 지점에 온다면
+                //top800지점의 box들이 투명도가 1이 되고
+                //각각의 원 위치로 이동한다.
+              }else if(scrollTop < 200 &&  scene01Num == 0){//올라갈때
+                scene01Num = 1; //내려갈때 1로바뀜 
+                $(".box1-1").delay(0).css({top: "800px"}).stop().animate({
+                             opacity: 1,
+                            top: "200px"
+                        }, 1000);
+						
+                $(".box1-2").delay(400).stop().css({top: "800px"}).animate({
+                            opacity: 1,
+                            top: "500px"
+                        }, 1000);
+                $(".box1-3").delay(800).css({top: "800px"}).stop().animate({
+                            opacity: 1,
+                            top: "700px"
+                        }, 1000);
+            }
+          })
+       });
+    </script>
+</body>
+</html>

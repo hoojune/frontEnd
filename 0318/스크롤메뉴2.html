@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤메뉴2</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/scroll.js"></script>
+    <style>
+         *{margin: 0; padding: 0;}
+         ul, li{list-style: none;}
+         a{text-decoration: none;}
+
+         #wrap{ width: 100%;}
+         #header{ width: 100%; height: 120px; background-color: aquamarine;
+                  display: flex;  justify-content: center; align-items: center;
+                position: fixed; top:0; left: 0;}
+         #header > ul{ width: 800px; height: 30px;}
+         #header > ul > li{ float: left; width: 200px; height: 30px;}
+         #header > ul > li > a{ font-size: 30px;}
+         #header > ul > li.on a{color: #ffffff;} 
+
+         #contents{ width: 100%;}
+			#contents div {padding-top:120px;} /*header의 높이만큼 내려와있음 - 고정*/
+			#paper {width:100%; height:1000px;background:#00BAFF;}
+			#works {width:100%; height:1000px; background:#5ac528;}
+			#email {width:100%; height:1000px;background:#FFE200; }
+            #gallery {width:100%; height:1000px;background:#9b3080; }
+
+        .q_mn{position: absolute; right:10px; top:200px; z-index: 9999; /*퀵메뉴 위치*/
+              width: 80px; height: 250px; border: 1px solid #000;}    
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+           <ul class="mn">
+               <li><a href="#">paper</a></li>
+               <li><a href="#">works</a></li>
+               <li><a href="#">email</a></li>
+               <li><a href="#">gallery</a></li>
+           </ul>
+        </div>
+        <div id="contents">
+            <div id="paper">paper</div>
+            <div id="works">works</div>
+            <div id="email">email</div>
+            <div id="gallery">gallery</div>
+        </div>
+        <div class="q_mn"> <!--옆의 퀵메뉴-->
+            <ul class="mn">
+                <li><a href="#">paper</a></li>
+                <li><a href="#">works</a></li>
+                <li><a href="#">email</a></li>
+                <li><a href="#">gallery</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        //해당 <script>안의 제이쿼리부분만 잘라서 자바스크립트파일로 외부 제이쿼리파일로 만들수 있음
+        //$(document).ready는 외부제이쿼리는 무조건 입력해야한다.
+       $(document).ready(function(){
+    var menu = $('ul.mn > li'); //header와 q_mn 공통으로 선언하기 위함 
+    var contents = $('#contents > div'); 
+
+    menu.click(function(){ //header버튼과 q_mn클릭시 동시에 적용됨
+
+       var tg = $(this);
+       var i = tg.index();
+
+       var section = contents.eq(i);
+       var tt = section.offset().top;
+
+       $('html, body').stop().animate({scrollTop:tt});
+    });
+
+
+    $(window).scroll(function(){
+       var sct = $(window).scrollTop();
+       $(".q_mn").stop().animate({top:(sct+200)+"px"}, 500);//q_mn는 top의 sct+200만큼 이동한다.
+       
+       contents.each(function(){//contents 아래에 있는 div를 순서대로 처리
+        var tg = $(this)  //현재 each문에 의해서 실행하는 contents에 div
+        var i = tg.index();
+
+        if(tg.offset().top <= sct){ // 현재 each문 의해서 실행하는 contents의 div
+           //와 현재 화면에 스크롤탑값을 비교
+           menu.removeClass('on');
+           menu.eq(i).addClass('on');
+        }
+       })
+    });
+   });
+    </script>
+</body>
+</html>

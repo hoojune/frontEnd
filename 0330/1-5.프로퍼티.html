@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로퍼티</title>
+</head>
+<body>
+    <h2>프로퍼티</h2>
+    <p>객체 : 우리가 인식할수 있는 모든대상</p>
+    <p>프로퍼티(property)
+        자바스크립트의 기본타입은 객체이다.객체란 이름과 값으로 구성된
+        프로퍼티의값으로 함수도 올수 있는데, 이를 프로퍼티 메서드라고한다.
+    </p>
+    <p>
+        객체와 배열의 차이점
+        1.인덱스가 있다.
+        2.원래는 타입은 공통되어야 한다.
+        3.크기가 정해져 있다(갯수)
+    </p>
+    <p>
+        객체를 만드는 방법
+        1.const 객체명 = {
+            프로퍼티명 : 프로퍼티값,
+            ... 
+            ... 
+        }
+        2, 생성자를 이용한 객체생성
+        function생성자명(매개변수1,매개변수2,..){
+            프로퍼티명 = 값;
+            ... 
+            ... 
+        }--> 템플릿형식
+        const 객체명1 = new생성자명(값1,값2..); -> 오브젝트1
+        const 객체명2 = new생성자명(값1,값2..); -> 오브젝트2
+
+        3.클래스를 이용한 객체생성(설계도 개념)
+
+        const 클래스명 = class{
+            constructor(매개변수1,매개변수2...){
+                프로퍼티명 = 값;
+                ... 
+                ... 
+            }
+            메서드명(매개변수1,매개변수2 ..){
+
+            }
+        }
+        const 객체명 = new 클래스명(값1,값2 ..);
+    </p>
+    <script>
+       'use strict';
+       const user ={
+           userid : 'apple',
+           name : '성호준',
+           gender : '남자',
+           hp : '01038225469',
+           birthday : '19990901',
+           memberId : function(){
+               return "korea" + this.hp
+           }
+       }
+       console.log(user.userid);
+       console.log(user.name);
+       console.log(user.gender);
+       console.log(user.hp);
+       console.log(user.birthday);
+       console.log(user.memberId);//함수호출
+       console.log(user.memberId());//리턴값
+    </script>
+</body>
+</html>

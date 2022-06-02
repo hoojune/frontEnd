@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 슬라이드</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        a{text-decoration: none;}
+        ul,li{list-style: none;}
+
+        #all{width: 100%; height: 400px; box-sizing: border-box; 
+            border: 1px solid #000; position: relative;}
+        /*이미지리스트 -> 움직임을 준다 */
+        .main_list{width: 100%; height: 400px; position: relative;
+                        background-color: aquamarine;}
+        .main_list ul{position: relative;
+                        width: 100%; height: 400px;}            
+        .main_list ul li{position: absolute; top: 0; width: 100%; height: 400px; font-size: 20px; color: #fff;
+                            text-align: center; line-height: 400px;}  
+        .main_list ul li:nth-child(1){left: 0; background-color: blue; z-index: 4;}  /*맨처음것은 보여야한다*/
+        .main_list ul li:nth-child(2){left: 0; background-color: yellow; z-index: 3; opacity: 0;}  
+        .main_list ul li:nth-child(3){left: 0; background-color: blueviolet; z-index: 2; opacity: 0;}  
+        .main_list ul li:nth-child(4){left: 0; background-color: brown; z-index: 1; opacity: 0;}  
+
+        /* 메뉴버튼 */
+        .btns{ position: absolute; top: 410px; left: 50%; z-index: 9999; margin-left: -87.5px;}
+        .btns li{float: left; margin-right: 25px; width: 25px; height: 25px; 
+                cursor: pointer;  background-color: crimson;}
+        .btns li:hover{background-color: rgb(72, 210, 30);}
+        .btns li.on{background-color: cadetblue;}
+
+        .s_btns{float: left; margin-top: 17px;}
+        .s_btns > li{float: left; margin-right: 10px; cursor: pointer;}
+
+    </style>
+</head>
+<body>
+    <div id="all">
+        <!--이미지 리스트-->
+        <div class="main_list">
+            <ul>
+                <li>이미지0</li>
+                <li>이미지1</li>
+                <li>이미지2</li>
+                <li>이미지3</li>
+            </ul>
+        </div>
+        <ul class="s_btns">
+            <li class="l_btn">왼쪽</li>
+            <li class="r_btn">오른쪽</li>
+        </ul>
+        <!--버튼-->
+        <ul class="btns">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+
+    <script>
+        $(function(){ //$(document).ready(function(){})과 같다
+         // 초기값 설정
+         var visual = $('.main_list > ul > li')
+         var button =  $('.btns > li')
+         var cur = 0;
+         var setIntervalId;
+
+         //버튼이벤트함수
+         button.click(function(){
+            var tg = $(this);
+            var i = tg.index();
+
+            button.removeClass('on'); // 대상의 클래스를 해제
+            tg.addClass('on');  //대상의 클래스를 적용
+
+            move(i);
+         });
+         //자동실행을 제어하는 함수
+         $('#all').on({
+            mouseover:function(){
+                clearInterval(setIntervalId);//자동실행 중지
+         },
+            mouseout:function(){
+                timer();
+            }
+        })
+
+
+         //자동실행을 위한 카운트함수
+         //setInterval (실행문,시간(먗초에 한번씩))
+         //자동실행을 중지하는 메서드 clearInterval(자동실행문)
+         timer();
+         function timer(){
+            setIntervalId = setInterval(function(){  
+                 var n = cur +1; //0,1,2,3
+             if(n == 4){ //4번일떄 실행함
+                 n = 0;
+             }
+         move(n);},3000);
+
+         }
+
+
+         //변수를 객체해서 움직임을 적용
+         function move(i){
+            var curEl = visual.eq(cur); // 처음에 보이는것 
+            var nextEl = visual.eq(i); 
+
+            curEl.css({opacity:1}).stop().animate({opacity:0});
+            nextEl.css({opacity:0}).stop().animate({opacity:1});
+            
+            cur = i;
+
+         }           
+
+        });
+    </script>
+</body>
+</html>

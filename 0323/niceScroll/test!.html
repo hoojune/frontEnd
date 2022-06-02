@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCRIPT src="js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <SCRIPT src="js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{ overflow-y: hidden;}
+        #wrap{width: 100%; height: 100vh; }
+        #header{width: 100%; height: 150px; background-color: aqua;}
+        #main_img{width: 100%; height: 450px; background-color: rgb(65, 167, 25);}
+        #contents{width: 100%; height: 1500px; background-color: rgb(57, 39, 124);}
+        #footer{width: 100%; height: 200px; background-color: rgb(212, 88, 140);}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+        </div>
+        <div id="main_img">
+        </div>
+        <div id="contents">
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(
+        
+          function() { 
+            $("#wrap").niceScroll({
+                cursorcolor:"#777",
+                cursorwidth:5,
+                cursoropacitymin:1,
+                scrollspeed:100,
+                cursorborderradius:'0',
+                mousescrollstep:40,
+                horizrailenabled:true,
+                cursoropacitymin:0,
+                cursoropacitymax:1,
+                background:"#c1c1c1",
+                cursorborder:"none",
+                autohidemode:false,
+                boxzoom:true,
+                zindex:99999,
+                horizrailenabled:true
+        
+            });
+          }); 
+        </script>
+</body>
+</html>

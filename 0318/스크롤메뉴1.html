@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤메뉴1</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/scroll.js"></script>
+    <style>
+         *{margin: 0; padding: 0;}
+         ul, li{list-style: none;}
+         a{text-decoration: none;}
+
+         #wrap{ width: 100%;}
+         #header{ width: 100%; height: 120px; background-color: aquamarine;
+                  display: flex;  justify-content: center; align-items: center;
+                position: fixed; top:0; left: 0;} /* 화면에 고정*/
+         #header > ul{ width: 800px; height: 30px;}
+         #header > ul > li{ float: left; width: 200px; height: 30px;}
+         #header > ul > li > a{ font-size: 30px;}
+         #header > ul > li.on a{color: #ffffff;} /*글자색 변경때는 글자태그 바로위의 태그에 on을 준다*/
+
+         #contents{ width: 100%;}
+			#contents div {padding-top:120px;}
+			#paper {width:100%; height:1000px;background:#00BAFF;}
+			#works {width:100%; height:1000px; background:#5ac528;}
+			#email {width:100%; height:1000px;background:#FFE200; }
+            #gallery {width:100%; height:1000px;background:#9b3080; }
+ 
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+           <ul class="mn">
+               <li><a href="#">paper</a></li>
+               <li><a href="#">works</a></li>
+               <li><a href="#">email</a></li>
+               <li><a href="#">gallery</a></li>
+           </ul>
+        </div>
+        <div id="contents">
+            <div id="paper">paper</div>
+            <div id="works">works</div>
+            <div id="email">email</div>
+            <div id="gallery">gallery</div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+        var menu = $('#header > ul > li');   //위치 변수선언
+        var contents = $('#contents > div');
+        
+        menu.click(function(){ //메뉴클릭시
+
+            var tg = $(this); //이벤트대상
+            var i =tg.index();  //이벤트대상이 몇번째인가
+
+            var section = contents.eq(i); //eq해당 번호의 index값을 가져옴
+            var tt = section.offset().top; //offset()은 선택한 요소의 좌표를 가져오거나 특정 좌표로 이동시킵니다
+
+            $('html , body').stop().animate({scrollTop:tt}); //스크롤바 수직위치 : tt
+            //scrollTop()은 선택한 요소의 스크롤바 수직 위치를 반환하거나 스크롤바 수직 위치를 정합니다.
+        })
+
+        $(window).scroll(function(){
+           var sct = (window).scrollTop();//현재 화면의 스크롤을 sct변수에삽입
+
+            contents.each(function(){ //contents 아래에 있는 div를 순서대로 처리
+                var tg = $(this)  //each문에 의해서 실행되는 contents안의 div
+                var i = tg.index(); 
+
+                //각각의 컨텐츠 높이와 scrollTOP구역의 비교해서 
+                //같은 위치에 있다는것은 스크롤이 해당컨텐츠로 이동되어 있다는것
+                    //-> 해당되는 div즉 menu를 찾아서 class를 준다.
+
+            // 현재 each문에 의해서 실행하는 contents의 div와 현재 화면에 scrollTOP값을 비교
+            if(tg.offest.top() <= sct ){  //scroll이 해당contents영역보다 같거나 큰경우
+                menu.removeClass('on'); //모든요소,메뉴의 class를 다 빼버림
+                menu.eq(i),addClass('on'); //menu의 i번째에 class를 더함
+            }
+            //버튼을 누르면 버튼 색깔이 바뀌면서 해당 이벤트영역으로 이동하며
+            //스크롤으로 이벤트영역이동시 해당이벤트영역의 버튼의 색깔이 바뀜
+            })
+        });
+        });
+       
+
+    </script>
+</body>
+</html>

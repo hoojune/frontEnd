@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 마우스이벤트</title>
+  <script src="./js/jquery.js"></script> <!--./현재폴더--> 
+  <script></script>
+  <style>
+    *{margin: 0; padding: 0;}
+    .box{margin: 100px;
+      width: 150px; height: 30px; 
+      background-color: rgb(21, 31, 31);
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center; line-height: 30px;
+      color: #fff; cursor: pointer; }  
+  </style>
+</head>
+<body>
+  <script>
+     
+    $(document).ready(function(){ 
+      // //click :마우스버튼을 누르는 순간 이벤트가 발생 
+        $('.box').click(function(){
+            alert('텍스트가 선택되었습니다.')
+        })
+      //mousedown:마우스를 누르는순간
+      $('.box').mousedown(function(){   
+        $(this).animate({width:'300px'},1000)
+        //animate():애니메이션 메서드  animate({속성1:'속성값1',속성2:'속성값2'},1000)..1000이 1초(기본값)
+      })
+      // //mouseup:마우스에서 클릭후 손을 떼는순간
+      $('.box').mouseup(function(){
+        $(this).animate({width:'150px'},700)
+      })
+
+        //dblclick:마우스로 더블클릭했을때
+      $('.box').dblclick(function(){
+        alert('더블클릭이 선택되었습니다.')
+      })
+
+        //hover:지정된대상위에 마우스를 올렸을때 /나갈때 실행 2가지
+      $('.box').hover( 
+        function(){
+          $(this).css({width:'300px'})
+        },   //,필수!
+        function(){
+          $(this).css({width:'150px'})
+        }
+      );
+
+        //hover == mousedown + mouseout
+        //mouseover:지정된대상위에 마우스를 올렸을때 실행
+      $('.box').mouseover(function(){
+        $(this).css({width:'300px'})
+      });
+
+      // //mouseout:지정된 대상위에 마우스가 나갈때 실행
+      $('.box').mouseout(function(){
+        $(this).css({width:'150px'})
+      });
+
+          //mouseenter:대상의 영역안에 들어갔을때 실행
+        $('.box').mouseenter(function(){
+         $(this).after('<p style="color:green">마우스엔터</p>')  //after:태그추가
+        });
+
+        // //mouseleave:대상의 영역안에서 밖으로 벗어날때 실행
+        $('.box').mouseleave(function(){
+          $(this).after('<p style="color:blue">마우스리브</p>')
+        });
+
+        //focus in,out : 특정대상의 안쪽에 마우스커서가 발생하거나 / 밖에 커서가 발생했을때 이벤트
+        $('.input_box').focusin(function(){
+          $(this).css('background-color','#ffffcc')
+        })
+        $('.input_box').focusout(function(){
+          $(this).css('background-color','#ffffff')
+        })
+        // 마우스좌표
+        $(document).mousemove(function(event){
+            $('span').text(event.pageX + "," + event.pageY)
+        });
+
+
+
+   });
+  </script>
+
+  <div class="box">box</div>
+
+  <!--focusin,out-->
+  <div class="input_box" style="border: 1px solid black; padding: 10px;">
+     이름 : <input type="text"><br>
+     주소 : <input type="text">
+  </div>
+  <p>텍스트 박스를 클릭하면focus를 얻습니다.
+    바깥쪽을 클릭하면 focus를 잃습니다.</p>
+
+    <!--mousemove-->
+    <p class="m_box">마우스좌표: <span></span>.</p>
+ 
+
+
+</body>
+</html>

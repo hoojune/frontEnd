@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메서드3</title>
+    <script src="js/jquery.js"></script>
+<style>
+    .menu > li{cursor: pointer;}
+    .menu > li:hover{color: blue;}
+
+</style>
+</head>
+<body>
+
+    <!-- next() : 선택된 객체의 형제요소중 바로다음에 있는 객체 -->
+    <!-- nextAll() : 선택된 객체의 형제요소중 다음에 있는  모든 객체 -->
+     <!-- find() : 선택된 객체의 안에 있는 요소 -->
+     <!-- parent() : 선택된 객체의 부모요소를 의미한다 -->
+     <!-- parents() : 선택된 객체의 부모요소의 형제들도 포함의미 -->
+    <ul class="menu">
+        <li>menu1</li>
+        <li><p>menu2</p></li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){ //거의 필수로
+          $('.menu > li').eq(2).css({color:'red'})
+           $('.menu > li').eq(2).next().css({color:'blue'})
+         $('.menu > li').eq(2).nextAll().css({color:'blue'})
+           $('.menu > li').eq(1).find('p').css({color:'green'});
+         $('.menu > li').eq(1).find('p').parent().parent().css({color:'red'}) 
+        $('.menu > li').eq(1).find('p').parents().css({color:'red'}) 
+        // .parent()는 개수만큼 위쪽으로 올라가서 표시함 부모의 부모도 가능
+        //parents()는 자신의 모든 부모를 해당해서 표시함
+         
+        });
+    </script>
+</body>
+</html>

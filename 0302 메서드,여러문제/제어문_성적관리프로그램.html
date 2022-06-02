@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if제어문2</title>
+</head>
+<body>
+    <h2>if 제어문2</h2>
+    <script>
+      'user strict'; 
+        
+        const kor = Number(prompt('국어점수를 입력하세요')) ;
+        const math = Number(prompt('수학점수를 입력하세요')) ;
+        const eng = Number(prompt('영어점수를 입력하세요')) ;
+     
+        const name = "성호준";
+        const total = kor + math + eng
+        const avg = total /3;
+        let num = ""; //a :90점이상  b: 80점이상 , c: 70점이상 ,d:60점이상 ,f학점 그외에
+
+        if(avg >= 90){
+            num = "A학점";
+        }else if(avg >= 80){
+           num = "B학점";
+        }else if(avg >= 70){
+          num = "C학점";
+        }else if(avg >= 60){
+          num = "D학점";
+        }else{
+          num = "F학점";
+        }
+
+        document.write(`<h2>${name}님 성적표 </h2>`);
+        document.write(`<p>국어점수 : ${kor}점 </p>`);
+        document.write(`<p>수학점수 : ${math}점 </p>`);
+        document.write(`<p>영어점수 : ${eng}점 </p>`);
+        document.write(`<p>총점 : ${total}점 </p>`);
+        document.write(`<p>평균 : ${avg}점 </p>`);
+        document.write(`<p>학점 : ${num}입니다 </p>`);
+
+  </script> 
+</body>
+</html>

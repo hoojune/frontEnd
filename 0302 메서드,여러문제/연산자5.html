@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼항연산자</title>
+</head>
+<body>
+    <h2>삼항연산자</h2>
+    <script>
+      'user strict'; 
+        
+        const num1 = Number(prompt('첫번째 숫자를 입력하세요'));
+        const num2 = Number(prompt('두번째 숫자를 입력하세요'));
+
+        const result = num1 > num2 ? num1 :num2;
+        // 
+        
+          // if(조건){
+          //   참일떄실행
+          // }else {
+          //   거짓일때실행
+          // }
+        console.log(`입력한 두 수에서 큰 수는 ${result}입니다`);
+        document.write(`입력한 두 수에서 큰 수는 ${result}입니다`);  //객체형
+        document.write('입력한 두 수에서 큰 수는 ${result}입니다'); //문자열로 표현
+        document.write("입력한 두 수에서 큰 수는 ${result}입니다");   //문자열의 우선순위   ''  -> ""
+        document.write('< img src="이미지경로" alt ="대체글">');  
+  </script> 
+</body>
+</html>

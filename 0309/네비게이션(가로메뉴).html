@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비게이션(가로메뉴)</title>
+    <style>
+        *{margin: 0; padding: 0; border: 0;}
+
+        ul,li{list-style: none;}
+        a{text-decoration: none;}
+
+        .menu{margin: 50px; width: 600px; height: 25px; border: 1px solid #000;}
+        .main_mn{}
+        .main_mn > li{float: left; width: 120px; border-right:1px solid #000 ; 
+                        box-sizing: border-box; position: relative;}
+        .main_mn > li > a{display: block; background-color: #fff; color: #000;text-align: center;}  
+        /* .main_mn > li:hover > a{background-color: blue; color: #fff; }   */
+        .main_mn > li.act > a{background-color: blue; color: #fff; }
+        .main_mn > li:last-child{border-right: 0;}
+        .sub_mn{position: absolute; top:25px; left: 0;
+                width: 100%; text-align: center; border:1px solid #ccc ;
+                border-top:0px; box-sizing: border-box;} 
+        .sub_mn li{height: 25px;}
+        .sub_mn li a{display: block; height: 25px; text-align: center;}
+        .sub_mn li:hover a{background-color: blueviolet; color: #fff;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        // $(this)마우스이벤트가 적용될 
+        //$('.main_mn > li')중에 이벤트를 적용한  $('.main_mn > li')를  $(this)라고 암시한다
+        /*$(대상).addclass(클래스명)->미리선언된 스타일 속성 제이쿼리 메서드 설정
+        $(대상).removeCalss(클래스명)-> 미리선언된  스타일 속성 제이쿼리메서드 성정된 동작을 취소*/
+        $(document).ready(function(){
+            $('.sub_mn').hide();
+
+            $('.main_mn > li').hover
+            (function(){  //mouse이벤트 많이 씀 click보다
+               //$(this).find('.sub_mn').show();
+               //$(this).find('.sub_mn').slideDown();
+               //$(this).find('.sub_mn').fadeIn();
+               $(this).find('.sub_mn').stop().show().css({opacity:'0'}).animate({opacity:'1'});
+               $(this).addClass('act');
+            },
+            function(){
+               // $('.sub_mn').hide();
+               //$('.sub_mn').slideUp();
+               $('.sub_mn').fadeOut();
+               $(this).removeClass('act');
+            })
+        })
+           
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <ul class="main_mn">
+            <li><a href="#">main</a>
+                <ul class="sub_mn">
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                </ul>
+            </li>
+            <li><a href="#">main</a>
+                <ul class="sub_mn">
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                </ul>
+            </li>
+            <li><a href="#">main</a>
+                <ul class="sub_mn">
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                </ul>
+            </li>
+            <li><a href="#">main</a>
+                <ul class="sub_mn">
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                </ul>
+            </li>
+            <li><a href="#">main</a>
+                <ul class="sub_mn">
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                    <li><a href="#">submenu</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+ 
+</body>
+</html>

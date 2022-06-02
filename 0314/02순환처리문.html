@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메서드2</title>
+    <script src="js/jquery.js"></script>
+<style>
+    .menu > li{cursor: pointer;}
+    .menu > li:hover{color: blue;}
+
+</style>
+</head>
+<body>
+
+    <!-- each문 : 순환처리문 ->지정된개수만큼 순서대로 처리 -->
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){ //거의 필수로
+            $('.menu > li').hide();
+           $('.menu > li').each(function(){
+               $(this).css({color:'red'}).show(2000); //띄웠을때 바로 바뀜
+           });
+        });
+    </script>
+</body>
+</html>

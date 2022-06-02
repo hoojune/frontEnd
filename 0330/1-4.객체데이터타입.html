@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터타입 - 객체형</title>
+</head>
+<body>
+    <h2>데이터타입 - 객체형</h2>
+    <p>여러속성을 하나의 변수에 저장할 수 있도록 해주는 데이터 타입입니다.
+        -> key / value pair 구조
+
+        let student = {"name" : "김사과", "age" : 20}
+                        key    value     key    value
+    </p>
+    <script>
+       'use strict'; //자바스크립트 엄격형 선언
+        const dog = {'name' : '루시' , 'age' : 10, 'weight': 2.5};
+        console.log(dog)
+
+        console.log('이름 :'+ dog.name);
+        console.log(`이름 :${dog.name}`);
+        console.log(`나이 :${dog.age}`);
+        console.log(`몸무게 :${dog.weight}`);
+
+        console.log(dog["name"]);
+        console.log(dog["age"]);
+        console.log(dog["weight"]);
+
+
+        dog.weight =3;
+        console.log(`몸무게 :${dog.weight}`);
+
+        //dog = {'name' : '뽀미' , 'age' : 5, 'weight': 6 };
+        //console.log(dog);//const는 새로운 객체를 참조할수 없다
+
+        let arr = [10,20,30,40,50];
+        for(let i in arr){
+            console.log(i + " = " + arr[i]);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-2</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        body{margin: 20px auto;
+            padding: 0; width: 620px; 
+            background: #192839;}
+        .thumbs{float: left; width: 100px;}
+        .thumbs img{margin-bottom: 3px; padding: 5px; border: 1px solid #ccc;}
+        .thumbs img:hover{border-color: #ef4018;}
+
+        #largeImg{margin-left: 110px; padding: 5px; width: 500px; height: 280px;
+                    border: 1px solid #ccc; overflow: hidden;}
+        #caption{position: relative; padding: 10px; font-family: "나눔고딕","맑은 고닥";
+                font-size: 12px; background: url(images/captionBg.png) repeat-y;
+                color: #fff; border: 1px solid #ccc;}
+    </style>
+</head>
+<body>
+    <div class="thumbs">    
+        <a href="images/pic1.jpg" title="image1"><img src="images/th_pic1.jpg" /></a>
+        <em>Lorem Ipsum is simply dummy text of the pdrinting and typesetting industry.</em>
+
+        <a href="images/pic2.jpg" title="image2"><img src="images/th_pic2.jpg" /></a>
+        <em>Lorem Ipsum is simply dummy tely dummy thely dummy tegxt of thely try. Sed facilisis, sem a luctus bibendum, dui risus pellentesque velit, quis tempor magna sem vel justo. Etiam eget ipsum ante.</em>
+
+        <a href="images/pic3.jpg" title="image3"><img src="images/th_pic3.jpg" /></a>
+        <em>Lorem Ipsum is simply dummy.</em>
+    </div>
+
+    <div id="largeImg"><img src="images/pic1.jpg" alt="image1"></div>
+
+    <script>
+        $('.thumbs em').hide();
+
+        $('.thumbs > a').click(function(e){
+            e.preventDefault();
+            if($('#caption')){
+                $('#caption').remove();
+            }
+
+            var path = $(this).attr('href');
+
+            if(path != $("largeImg img").attr("src")){
+                $("#largeImg img").attr({src:path})
+                $("#largeImg img").css({opacity:0}).stop().animate({opacity:1},1000);
+            }
+            var msg = $(this).next('em').text();
+            $('#largeImg').append('<div id="caption"></div>');
+            $('#largeImg #caption').text(msg)
+
+            var posy = $('#largeImg #caption').height() + 27;
+            $('#largeImg #caption').animate({top: "-=" + posy + "px"},300)
+
+
+
+        });
+            
+
+         
+    </script>
+
+</body>
+</html>

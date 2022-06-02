@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>switch2</title>
+</head>
+<body>
+    <h2> switch2</h2>
+    <script>
+      'user strict'; 
+        
+   let menu = prompt("메뉴를 선택하세요!"); // 피자는p . 스파게티 s, 리조또 r , 드링크 d
+
+   switch(menu){
+    case 'P':
+    case 'p':
+      document.write("pizza를 주문하셨습니다."); break;
+
+    case 's':
+    case 'S':
+      document.write("Spaghetti를 주문하셨습니다."); break;
+
+    case 'r':
+    case 'R':
+      document.write("Risotto를 주문하셨습니다."); break;
+
+    case 'd':
+    case 'D':
+      document.write("Drink를 주문하셨습니다."); break;
+
+      default:
+      document.write("메뉴에 없습니다.");
+   }
+
+      
+      
+  </script> 
+</body>
+</html>

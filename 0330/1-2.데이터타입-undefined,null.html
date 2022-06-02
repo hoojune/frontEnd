@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터타입 - undefined/null</title>
+</head>
+<body>
+    <h2>데이터타입 - undefined/null</h2>
+    <p>undefined : 타입이 정해지지않은것을 의미한다
+        ->변수 선언후 값이 정해지지 않은경우
+        null : 값이 정해지지 않은것을 의미한다
+        ->null로 변수를 초기화 한경우 -> object타입
+    </p>
+    <script>
+       'use strict'; //자바스크립트 엄격형 선언
+        let num; //undefind
+        console.log(num);
+        console.log(typeof(num));
+
+        let obj = null;
+        console.log(obj); //null
+        console.log(typeof(obj));//object
+
+        let obj2 = {};
+        console.log(obj2); //{}
+        console.log(typeof(obj2));//object
+    </script>
+</body>
+</html>
