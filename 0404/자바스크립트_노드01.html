@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트노드01</title>
+</head>
+<body>
+    <div class="container">
+        <ul id="tutorial">
+            <li class="html">html</li>
+            <li class="css">css</li>
+            <li class="css3">css3</li>
+            <li class="javascript">javascript</li>
+            <li class="jquery">jquery</li>
+            <li class="blank">blank</li>
+        </ul>
+        <p id="portfolio">portfolio</p>
+    </div>
+    <script>
+        'use strict';
+        //id로 접근 Element object -> 한번에 적용
+        
+        let tutorial = document.querySelector("#tutorial");
+       tutorial.style.backgroundColor = "#666";
+
+       //id를 제외한 태그,클래스는 배열 즉,nodelist이다. 
+        //tag로 접근 nodelist object - 반복문 필요
+       const li =document.querySelectorAll('li');
+        console.log(li);
+        console.log(li[1]);
+        console.log(li.item(1));
+        //배열로 각각 적용  -> 배열은 반복문 써야함
+        console.log("li.length : " + li.length);
+        for(let i =0 ; i < li.length ; i++){
+            li[i].style.backgroundColor = "#666";
+        }
+        //class로 접근 nodelist object
+        const html = document.querySelectorAll(".html");
+       console.log(html);
+       html[0].style.backgroundColor = "#666";//배열로 생각함
+
+        //css기법으로 첫번째 노드 선택     node object
+        const li = document.querySelector("#tutorial > li")//하나만 선택됨
+        li.backgroundColor = "#666";
+        //css기법으로 전체 노드 선택      nodelist object
+       const li = document.querySelectorAll("#tutorial > li");
+        for(let i =0 ; i < li.length ; i ++){
+           li[i].style.backgroundColor = "#666";
+       }
+        //getElementsByTagName 을 더 선호
+        const li = document.getElementsByTagName("li");
+        for(let i =0 ; i < li.length ; i ++){ //대소문자 구별함
+            if(li[i].textContent == "html"||li[i].textContent == "css" ){
+                li[i].style.backgroundColor = "#666" //해당노드만 속성값들어감
+            }
+        }
+    </script>
+</body>
+</html>

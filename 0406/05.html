@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      body {
+        padding: 50px;
+        background-color: aqua;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+
+      .container {
+        margin-top: 35px;
+      }
+      .controller li {
+        display: inline-block;
+        margin-left: 8px;
+      }
+      .controller li:first-child {
+        margin-left: 0;
+      }
+      .controller li a {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 20px;
+        transition: all 0.3s;
+      }
+      .controller li.on a {
+        width: 50px;
+        background-color: #8ac007;
+      }
+      .picture {
+        position: relative;
+        margin-top: 30px;
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+      }
+      .picture ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        width: 2400px;
+        transition: left 0.4s;
+      }
+      .picture li {
+        float: left;
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+      .picture li.active {
+        opacity: 1;
+      }
+      .picture img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        const container = document.querySelectorAll(".container")[0];
+        const controller = container.children[0];
+        const picture = document.querySelectorAll(".picture")[0];
+        const pictureUl = picture.children[0];
+        const pictureLi = pictureUl.children; //이미지들
+        let liList = controller.children;
+        let n = 0; //전역변수
+
+        for (let i = 0; i < liList.length; i++) {
+          liList[i].index = i; //li 의 인덱스값을 생성
+
+          liList[i].addEventListener("click", function (e) {
+            e.preventDefault();//고유동작 중단
+            n = e.currentTarget.index;
+
+            for (let j = 0; j < liList.length; j++) {
+              if (j == n) {
+                //버튼과 이미지의 index값이 같다면
+                e.currentTarget.classList.add("on");
+                pictureLi[j].classList.add("active");
+                //투명도가 0~1로 서서히 변함
+              } else {
+                liList[j].classList.remove("on");
+                pictureLi[j].classList.remove("active");
+              }
+            }
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="controller">
+        <li class="on"><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+      <div class="picture">
+        <ul>
+          <li class="active"><img src="images/work1.jpg" alt="" /></li>
+          <li><img src="images/work2.jpg" alt="" /></li>
+          <li><img src="images/work3.jpg" alt="" /></li>
+          <li><img src="images/work4.jpg" alt="" /></li>
+          <li><img src="images/work5.jpg" alt="" /></li>
+          <li><img src="images/work6.jpg" alt="" /></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

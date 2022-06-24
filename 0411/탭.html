@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 1rem; /*rem은 무조건 기본값설정필요*/
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+
+      .container {
+        margin-top: 35px;
+      }
+      nav ul {
+        margin: 16px 0 16px 0;
+        padding: 8px 0;
+        text-align: left;
+        font-weight: 400;
+        border-bottom: 1px soild #d4d4d4;
+      }
+      nav ul li {
+        display: inline;
+      }
+      nav ul li a {
+        margin-right: 0;
+        padding: 10px 20px 10px; /*글자안쪽 여백*/
+        text-decoration: none;
+        font-size: 0.87rem;
+        background-color: #f1f1f1;
+        color: #333;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        transition: all 0.4s; /*all : 모든 속성이 transition 효과를 얻는다.*/
+      }
+      /*addclass시에는 같은 형제들사이에서 들어가냐 안들어가냐문제라
+            a보다는 li태그에 선언*/
+
+    /*가상클래스 on*/
+      nav ul li.on a {
+        background-color: #8ac007;
+        color: #fff;
+        border-color: #8ac007;
+      }
+      /*해당이름가진 클래스들 모두 적용*/
+      .description {
+        display: none;
+        margin: 30px 0;
+        padding: 30px 0;
+        font-size: 0.875em;
+        color: #333;
+        border-bottom: 4px solid #d4d4d4;
+      }
+      /*가상클래스 active*/
+      .description.active {
+        display: block;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        //초기값
+        let n = 0;
+        const container = document.querySelectorAll(".container")[0];/*객체*/
+        let infoArray = [];//빈 배열생성
+
+        //객체화
+        //해당 index에 맞는 자식을 선택
+        //아닌것은 맨뒤에 추가
+        for (let i = 0; i < container.children.length; i++) {
+          //자식들을 반복
+          if (container.children[i].tagName == "NAV") {
+            //같은 index는
+            nav = container.children[i]; //추가
+          } else {
+            //해당되지 않는것은
+            infoArray.push(container.children[i]); //맨뒤에 추가
+          }
+        }
+        //초기 액션
+        const navLi = nav.children[0].children; //li리스트
+
+        navLi[n].classList.add("on"); //첫번째 li의 a에 적용
+        infoArray[n].classList.add("active");//description의 모든클래스에 적용
+
+        for (let i = 0; i < navLi.length; i++) {
+          navLi[i].index = i; //해당 index생성
+
+          navLi[i].addEventListener("click", function (e) {
+            e.preventDefault();
+            n = e.currentTarget.index; //현재이벤트적용대상의 인덱스
+
+            for (let j = 0; j < navLi.length; j++) {
+              if (j == n) { //이벤트대상 = 자식인덱스
+                //클래스추가
+                navLi[j].classList.add("on");
+                infoArray[j].classList.add("active");
+              } else {//아닐경우 
+                //클래스 제거
+                navLi[j].classList.remove("on");
+                infoArray[j].classList.remove("active");
+              }
+            }
+          });
+        }
+        //setInterval은 계속되는 움직임-모션 , click같은 이벤트,UI같은 효과는 classlist
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li class="tab1"><a href="">HTNL</a></li>
+          <li class="tab2"><a href="">CSS</a></li>
+          <li class="tab3"><a href="">Javascript</a></li>
+          <li class="tab4"><a href="">jQuery</a></li>
+        </ul>
+      </nav>
+      <!--클래스는 공통값으로  선언하여 스타일이나 움직임 공동으로 선언가능-->
+      <div class="description HTMl">subject : HTML</div>
+      <div class="description CSS">subject : CSS</div>
+      <div class="description Javascript">subject : Javascript</div>
+      <div class="description jQuery">subject : jQuery</div>
+    </div>
+  </body>
+</html>

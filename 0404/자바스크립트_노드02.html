@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트노드01</title>
+</head>
+<body>
+    <div class="container">
+        <p id="portfolio">portfolio</p>
+        <ul id="tutorial">
+            <li class="html">html</li>
+            <li class="css">css</li>
+            <li class="css3">css3</li>
+            <li class="javascript">javascript</li>
+            <li class="jquery">jquery</li>
+            <li class="blank"></li>
+        </ul>
+        <p id="portfolio">portfolio</p>
+    </div>
+    <script>
+        'use strict';
+        //상위 노드에 접근 : parentNode -> node Object
+        const html = document.querySelector(".html");
+        const parentUI = html.parentNode;
+
+        //상위 HTML노드에 접근 : parentElement -> Element Object
+        const html = document.querySelector(".html");
+        const contUI = html.parentElement;
+        console.log(contUI);
+
+        //하위노드에 접근 : childNodes -> Nodelist object
+        const cont = document.querySelector("#tutorial");
+        const contLi = cont.childNodes;
+        console.log(contLi);
+
+        //하위 html노드에 접근 : children
+        const cont = document.querySelector("#tutorial");
+        const contLi = cont.children;
+        console.log(contLi); // 배열로 가져옴
+        for(let i =0 ; i < contLi.length ; i ++){
+            contLi[i].style.backgroundColor = "#666";
+        }
+                
+        // 하위 처음 노드에 접근
+        // node.firstChild 첫번째 자식
+        // Return Value : A Node object
+        var cont=document.querySelector("#tutorial");
+        var contChild=cont.firstChild;
+        console.log(contChild);
+               
+        // 하위 처음 HTML 노드에 접근
+        // node.firstElementChild
+        // Return Value : A Node object
+        var cont=document.querySelector("#tutorial");
+        var contChild=cont.firstElementChild;
+        console.log(contChild);
+               
+        // 하위 마지막 노드에 접근
+        // node.lastChild 마지막자식
+        // Return Value : A Node object
+        var cont=document.querySelector("#tutorial");
+        var contChild=cont.lastChild;
+         console.log(contChild);
+               
+        // 하위 마지막 HTML 노드에 접근
+        // node.lastElementChild
+        // Return Value : A Node object
+        var cont=document.querySelector("#tutorial");
+        var contChild=cont.lastElementChild;
+         console.log(contChild);
+               
+        // 이전 노드에 접근
+        // node.previousSibling 이전것
+        // Return Value : A Node object
+        var css=document.querySelector(".css");
+        var previous=css.previousSibling;
+         console.log(previous);
+           
+        // 이전 HTML 노드에 접근
+        // node.previousElementSibling
+        // Return Value : A Node object
+        var css=document.querySelector(".css");
+        var previous=css.previousElementSibling;
+         console.log(next);
+        previous.style.backgroundColor="#666";
+             
+        // 다음 노드에 접근
+        // node.nextSibling 다음것
+        // Return Value : A Node object
+        var html=document.querySelector(".html");
+        var next=html.nextSibling;
+         console.log(next);
+        
+        // 다음 HTML 노드에 접근
+        // node.nextElementSibling
+        // Return Value : A Node object
+        var html=document.querySelector(".html");
+        var next=html.nextElementSibling;
+        console.log(next);
+        next.style.backgroundColor="#666";
+    </script>
+</body>
+</html>

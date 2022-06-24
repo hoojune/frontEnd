@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트UI</title>
+    <style>
+      .container {
+        margin-top: 35px;
+      }
+      .ball {
+        width: 30px;
+        height: 30px;
+        background-color: green;
+        border-radius: 50%;
+        position: absolute;
+        left: 40px;
+        top: 184px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="queue">animate queue</button>
+      <div class="ball"></div>
+    </div>
+    <script>
+      "use strict";
+      //addEventListener 이벤트를 준다.
+      // $(document).ready(function(){}) = window.addEventListener
+      window.addEventListener("load", function () {
+        const queue = document.querySelector("#queue");
+        const ball = document.querySelector(".ball");
+        let X = ball.offsetLeft; //ball기준 X축좌표
+        let targetX = 400; //값설정
+        queue.addEventListener("click", function () {
+          animate1(ball, X, targetX);
+          //함수호출(움직이는대상,대상의 현재위치,최종위치값)X~400까지
+        });
+      });
+
+      function animate1(target, startX, targetX) {
+        //매개변수,파라미터
+        //setInterval(실행할함수,시간) -> 실행함수를 시간간격으로 실행
+        //객체화
+        let timer = setInterval(function () {
+          //자동실행의 범위설정
+          if (startX < targetX) {
+            startX += 10; //해당좌표값에 계속 +10
+          } else {
+            startX = targetX;
+            clearInterval(timer); //해당함수멈춤
+          }
+          target.style.left = startX + "px"; //실제로 움직임 주는 명령
+        }, 10);
+      }
+    </script>
+  </body>
+</html>

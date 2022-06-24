@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트노드03</title>
+</head>
+<body>
+    <div class="container">
+        <p id="portfolio">portfolio</p>
+        <ul id="tutorial">
+            <li class="html">html</li>
+            <li class="css">css</li>
+            <li class="css3">css3</li>
+            <li class="javascript">javascript</li>
+            <li class="jquery">jquery</li>
+            <li class="blank"></li>
+        </ul>
+        <p id="portfolio">portfolio</p>
+    </div>
+    <script>
+        'use strict';
+        
+        // 노드의 태그 이름 속성
+        // element.tagName
+        // Return Value : A String
+        var html=document.querySelector(".html");
+        var tagName=html.tagName;
+        console.log("tagName : "+tagName);
+        
+        // 노드의 id 속성
+        // element.id
+        // Return Value : A String
+        var ul=document.querySelector("#tutorial");
+        var idName=ul.id;
+        console.log("idName : "+idName);
+        
+        // 노드의 클래스 이름 속성
+        // element.className
+        // Return Value : A String
+        var li=document.querySelectorAll("#tutorial li");
+
+        for(var i=0; i<li.length; i++){
+        // 노드의 클래스 이름
+        // element.className
+        // Return : A String
+        if(li[i].className == "html"){
+        li[i].style.backgroundColor="#666";
+        }
+        }
+               
+        var li=document.querySelectorAll("#tutorial li");
+
+        for(var i=0; i<li.length; i++){
+        // 문자열 자르기
+        // string.slice(start, end)
+        // Return Value : A String
+        // ex) var str="bus";
+        // console.log("string : "+str.slice(1, 2)); // str : u
+        var name=li[i].className;
+        console.log("string : "+name.slice(0, 3));
+
+        if(name.slice(0, 3) == "css"){
+        li[i].style.backgroundColor="#666";
+        }
+        }
+              
+        var li=document.querySelectorAll("#tutorial li");
+
+        for(var i=0; i<li.length; i++){
+        // 마지막 문자열 자르기
+        var name=li[i].className;
+        var length=li[i].className.length;
+        // console.log("name : "+name+", length : "+length);
+
+        var lastword=name.slice((length-1), length);
+        // console.log("lastword : "+lastword);
+
+        if(lastword == "3"){
+        li[i].style.backgroundColor="#666";
+        }
+        }
+              
+        var li=document.querySelectorAll("#tutorial li");
+
+        for(var i=0; i<li.length; i++){
+        // 포함 문자
+        // string.indexOf(searchvalue, start)
+        // Return Value : A Number
+        var name=li[i].className;
+        if(name.indexOf("as") != -1){
+        li[i].style.backgroundColor="#666";
+        }
+        }
+        
+        // 노드의 속성 읽기 가져오기
+        // element.getAttribute(attributename)
+        // Return Value : A String
+        var li=document.querySelectorAll("#tutorial li");
+
+        for(var i=0; i<li.length; i++){
+        var className=li[i].getAttribute("class");
+        console.log("className : "+className);
+        }
+
+        // 노드의 속성 변경
+        // element.setAttribute(attributename, attributevalue)
+        // Return Value : No return value
+        var p=document.querySelectorAll("p");
+        //textContent : 안에있는 내용
+        for(var i=0; i<p.length; i++){
+        if(p[i].textContent == "portfolio"){
+        p[i].setAttribute("id", "portfolio_study");
+        }
+        }
+
+        // 노드의 속성 제거
+        // element.removeAttribute(attributename)
+        // Return Value : No return value
+        var p=document.querySelectorAll("p");
+
+        for(var i=0; i<p.length; i++){
+        if(p[i].textContent == "portfolio"){
+        p[i].removeAttribute("id");
+        }
+        }
+
+        // 노드의 속성이 있는지 점검
+        // element.hasAttribute(attributename)
+        // Return Value : A Boolean
+        var p=document.querySelectorAll("p");
+
+        for(var i=0; i<p.length; i++){
+        if(p[i].hasAttribute("id")){//해당속성이 있는가?
+        p[i].style.backgroundColor="#666";
+        }
+        }
+            </script>
+        </body>
+    </html>

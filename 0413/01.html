@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+        .container{
+            margin-top: 35px;
+            height: 500px;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #8ac007;
+        }
+        .button_group{
+            margin-top: 50px;
+        }
+        .button_group a{
+            display: inline-block;
+
+            margin-right: 10px;
+            padding: 5px 20px;
+            font-size: 0.875em;
+            background-color: #666;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+            let box = document.querySelector('#box');
+            const btn1 = document.querySelector('#size_big');
+            const btn2 = document.querySelector('#opacity');
+            const reset = document.querySelector('#reset');
+
+            //각각의 객체로 선언해줌
+            box.style.opacity = 1;      
+            let currentW = 50;
+            let targetW = 400;
+            let op = 1;
+
+            btn1.addEventListener('click',function(e){//e는 이벤트
+                e.preventDefault();//이벤트초기화
+
+                let timer = setInterval(function(){
+                    if((targetW - currentW) > 10){// 400- 현재크기 >10까지
+                        currentW += 10;//50~400까지 크기 증가시킴
+                    }else{//400-현재크기가 10보다작다면
+                        currentW = targetW // 400 -> 390 +10
+                        clearInterval(timer); //함수초기화
+                    }
+                    //넓이값은 커지는 currentW를 따라감
+                    box.style.width = currentW + "px"; 
+                    box.style.height = currentW + "px";
+                },10);//0.001초간격
+            });
+
+            btn2.addEventListener('click',function(e){
+                e.preventDefault();
+
+                let timer2 = setInterval(function(){
+                    if(op > 0.1){//투명도가 0.1보다 크다면
+                        op -= 0.1; //현재투명도에서 - 0.1
+                    }else{//0.1보다 작다면
+                        op = 0;//투명도는 0
+                        clearInterval(timer2); //함수초기화
+                    }
+                    box.style.opacity = op;//투명도값
+                },10)
+            });
+
+            reset.addEventListener('click',function(e){
+                e.preventDefault();//초기화
+                box.removeAttribute('style');//적용스타일 제거
+                //원래 크기,투명도로 돌아감
+                currentW = 50;
+                op=1;
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box"></div>
+            <div class="button_group">
+                <a href="" id="size_big">size big</a>
+                <a href="" id="opacity">opacity 0</a>
+                <a href="" id="reset">reset</a>
+            </div>   
+         </div>
+</body>
+</html>

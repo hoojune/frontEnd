@@ -1,0 +1,42 @@
+body-parser?
+const express = require('express');
+const app = express();
+
+app.post('/',function(req,res){
+	var post = req.body;
+	console.log(post)
+})
+Node.js, Express를 사용하여 요청에 대한 응답을 처리할 때
+위 console.log(post) 부분에서 undefined를 볼 수 있습니다.
+
+즉, req.body 부분을 undefined로 처리하고 있습니다.
+
+여기서 body-parser를 이용하면
+req.body 데이터를 사용자가가 원하는 형태로
+parsing 하여 문제를 해결할 수 있습니다!
+
+body-parser 사용법
+npm install body-parser
+우선 body-parser를 설치해준뒤 아래와 같은 포맷으로 코드를 작성합니다.
+
+전체 코드
+
+const express = require('express');
+const bodyParser = require('body-parser'); // 모듈을 불러옵니다.
+const app = express();
+// 추가
+app.use(bodyParser().json()); //json 형태로 parsing
+app.use(express.urlencoded( {extended : false } )); 
+app.post('/',function(req,res){
+	var post = req.body;
+	console.log(post)
+})
+app.use(bodyParser().json()); //json 형태로 parsing
+해당 코드를 통해 json형태로 req.body를 파싱합니다.
+
+app.use(express.urlencoded( {extended : false } )); 
+false > 기본으로 내장된 querystring 모듈을 사용합니다.
+true > 따로 설치가 필요한 qs 모듈을 사용하여 쿼리 스트링을 해석합니다.
+
+기존 querystring 모듈과 qs 모듈의 차이는
+중첩 객체 처리라고 보면 될 것 같습니다.

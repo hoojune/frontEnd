@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location 객체</title>
+</head>
+<body>
+    <h2>location 객체</h2>
+    <p>
+        location 객체는 현재 브라우저에 표시된 HTML 문서의 주소를 얻거나, 브라우저에 새 문서를 불러올 때 사용합니다.<br/>
+        <br/><br/><br/><br/>
+        href : URL 전체 정보를 리턴, 특정 페이지로 이동<br/>
+        protocol : 프로토콜 정보를 리턴<br/>
+        hostname : 호스트 이름과 포트번호를 리턴<br/>
+        pathname : URL 경로부분의 정보를 리턴<br/>
+    </p>
+    <script>
+        'use strict';
+         location.href='./location.html'; // location.html로 이동
+         console.log(`현재 문서의 URL 주소 : ${location.href}`); //자동으로 실행.
+        console.log(`현재 문서의 protocol : ${location.protocol}`);//서버관련 규약  
+        console.log(`현재 문서의 hostname : ${location.hostname}`);//서버이름
+        console.log(`현재 문서의 pathname : ${location.pathname}`);//경로
+    </script>
+
+
+</body>
+</html>

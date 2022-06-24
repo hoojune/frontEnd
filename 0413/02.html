@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+        .container{
+            margin-top: 50px;
+            height: 500px;
+        }
+        .ball{
+            width: 50px;
+            height: 50px;
+            background-color: #8ac007;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+            let num =0;//위치이동관련 초기값
+            let currentx = 0;//현재 위치에 관한변수
+            let targetX = 0;//목표위치에 관한 변수(최종위치)
+            let moving = false;// 현재 움직임관련변수
+
+            const body = document.body; //body영역전체
+            const ball = document.querySelector("#ball");
+ 
+            //마우스wheel일때 
+            body.addEventListener('wheel',function(e){
+                // console.log("mousewheel event !!");
+
+                if(moving) return;
+                //dalta : 마우스휠 Y축(=상하=세로) 스크롤량 반환.
+                let delta = e.wheelDeltaY;//이벤트의 세로값
+                // console.log("delta :" + delta);
+
+                // 0 은 이벤트가 없는상태
+                //+ 는 위쪽으로 가는상태
+                if(delta > 0){//스크롤량이 0보다 크다면
+                    console.log("up"); 
+                    if(num > 0){//위치가 0보다 클때
+                        num -=1; //계속 바깥쪽으로
+                    }
+                    // - 는 아래로 가는상태
+                }else{ //0보다 작을때or 0
+                    console.log("down");
+                    if(num < 20){//위치가 20보다 작으면
+                        num +=1;//안쪽으로
+                    }
+                }
+
+                moving = true; 
+                targetX = 100*num; //100.200.300(down할때마다 커짐) -> up = 0(최종위치)
+                console.log("num: " + num+", currentx : " + currentx + ", targetX : "+targetX);
+
+
+                //
+                let aniTimer = setInterval(function(){
+                    if(targetX > currentx){//목표위치보다 작다면
+                       if(Math.abs(targetX - currentx) > 5) //절댓값이 5보다 크다면
+                       {//Math.abs : 숫자의 절댓값을 반환합니다.
+                        currentx += 5; //5씩증가
+                       }else{//크거나 같다면
+                           currentx = targetX; //같음
+                           clearInterval(aniTimer); //함수멈춤
+                           moving = false;//안움직임
+                       }
+                    }else{//목표위치보다 크다면 
+                        if(Math.abs(targetX -currentx) > 5){//절댓값이 5보다 크다면
+                            currentx -=5; //되돌아간다
+                        }else{
+                           currentx = targetX;
+                           clearInterval(aniTimer);
+                           moving = false;
+                        }
+                    }
+                    //marginLeft값이 currentx값과 같음
+                    ball.style.marginLeft = currentx + "px";
+                },5);      
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="ball" id="ball"></div>
+        <!--클래스는 css , 아이디는 javascript용 for문 쓰지않기위해-->
+    </div>
+</body>
+</html>

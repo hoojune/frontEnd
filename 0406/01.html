@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      body {
+        padding: 50px;
+      }
+      .container {
+        margin-top: 35px;
+      }
+      button {
+        position: relative;
+        z-index: 1000;
+        padding: 5px 15px;
+        background-color: #ccc;
+        color: #000;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.5s;
+      }
+      button:hover {
+        /*버튼누르면 바뀜*/
+        background-color: #888;
+      } /*특정 이미지만 선택 , 한줄로 정렬*/
+      img[alt="lion"] {
+        display: block;
+        margin-top: 50px;
+        width: 240px;
+        height: 240px;
+        transition: all 0.4s;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        //전역변수 선언
+        let y = 50;
+        let x = 50;
+        let lion;
+        const topBtn = document.querySelector("#top"); //객체생성
+        const bottomBtn = document.querySelector("#bottom");
+        const rightBtn = document.querySelector("#right");
+        const leftBtn = document.querySelector("#left"); //한개의 객체-object
+        const container = document.getElementsByClassName("container")[0]; //그룹객체
+        //class는 하나만 있더라도 list 즉, 배열로 인식함
+
+        for (let i = 0; i < container.children.length; i++) {
+          if (container.children[i].className == "lion") {
+            lion = container.children[i];
+          }
+        }
+
+        //이벤트 적용 -> 이동
+        topBtn.addEventListener("click", function () {
+          y = y - 100;
+          lion.style.marginTop = y + "px"; //margin값만큼 이동
+        });
+        bottomBtn.addEventListener("click", function () {
+          y = y + 100;
+          lion.style.marginTop = y + "px";
+        });
+        rightBtn.addEventListener("click", function () {
+          x = x - 100;
+          lion.style.marginLeft = x + "px";
+        });
+        leftBtn.addEventListener("click", function () {
+          x = x + 100;
+          lion.style.marginLeft = x + "px";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!--버튼클릭시 해당방향으로 이동-->
+    <div class="container">
+      <button id="top">top</button>
+      <button id="bottom">bottom</button>
+      <button id="left">left</button>
+      <button id="right">right</button>
+
+      <img src="images/lion.gif" alt="lion" class="lion" />
+      <!--class,tag, querySelectorAll 은 배열이다.-->
+    </div>
+  </body>
+</html>

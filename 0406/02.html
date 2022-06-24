@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      body {
+        padding: 50px;
+      }
+      .container {
+        margin-top: 35px;
+      }
+      button {
+        position: relative;
+        z-index: 1000;
+        padding: 5px 15px;
+        background-color: #ccc;
+        color: #000;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.5s;
+      }
+      button:hover {
+        background-color: #888;
+      }
+      img[alt="lion"] {
+        display: block;
+        margin-top: 50px;
+        width: 240px;
+        height: 240px;
+        transition: all 0.4s;
+      }
+      .lion.moving {
+        animation: moving 4s linear infinite;
+      }
+
+      @keyframes moving {
+        /*호출시 해당애니메이션이 적용*/
+        0% {
+          /*현재지점에서*/
+          transform: translateX(0); 
+        } /*X = 1000px만큼 이동*/
+        100% {
+          transform: translateX(1000px);
+        }
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        let lion;
+        const addBtn = document.getElementById("add");
+        const removeBtn = document.getElementById("remove");
+        const container = document.getElementsByClassName("container")[0];
+
+        for (let i = 0; i < container.children.length; i++) {
+          if (container.children[i].className == "lion") {
+            lion = container.children[i];
+          }
+        }
+        //이벤트 적용
+        //위쪽의  keyframe적용
+        addBtn.addEventListener("click", function () {
+          lion.classList.add("moving");
+        });
+        removeBtn.addEventListener("click", function () {
+          lion.classList.remove("moving");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <button id="add">add</button>
+      <button id="remove">remove</button>
+      <img src="images/lion.gif" alt="lion" class="lion" />
+    </div>
+  </body>
+</html>

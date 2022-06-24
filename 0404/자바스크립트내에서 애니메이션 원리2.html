@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+    <style>
+       *{margin: 0; padding: 0; border:0;}
+       ul, li{ list-style: none;}
+       button { margin-left: 100px;
+            padding: 5px 15px;
+            background-color: #666;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.5s;
+        }
+        button:hover {
+            background-color: #888;
+        }
+
+        .container {
+            position: relative;
+            left: 0;
+            top: 0;
+            margin-top: 35px;
+            width: 600px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .gallery {
+            position: absolute;
+            z-index: 1;
+            left: -600px;
+            top: 40px;
+            width: 600px;
+            height: 200px;
+            list-style: none;
+            transition: left 0.5s ease-out;
+        }
+        .gallery li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+        .gallery li img {
+            width: 200px;
+        }
+        .gallery.active {
+            left: 0;
+        }
+        .gallery li.over {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="tab">gallery open</button>
+        <ul class="gallery">
+            <li><img src="images/slide1.jpg" alt="image1"></li>
+            <li><img src="images/slide2.jpg" alt="image2"></li>
+            <li><img src="images/slide3.jpg" alt="image3"></li>
+        </ul>
+    </div>
+
+    <script>
+        'use strict';
+         //$(document).ready(function(){})
+         window.addEventListener('load',function(){
+            let status = 'closed'; //조건 초기값
+            const tab = document.querySelector('#tab');
+            const slider = document.querySelector('.gallery');
+            const slideList = document.querySelectorAll('.gallery li');
+
+            tab.addEventListener('click', function(e){
+                   if(status == 'closed'){
+                      status = 'open';
+                      e.target.innerText = "gallery close";
+                      slider.classList.add('active');
+                   }
+                   else if(status == 'open'){
+                      status="closed"; 
+                      e.target.innerText="gallery open";
+                      slider.classList.remove('active');
+                   }
+            });
+
+            for(let i=0; i<slideList.length; i++){
+                slideList[i].addEventListener('mouseenter',function(e){
+                     e.target.classList.add('over');
+                });
+                slideList[i].addEventListener("mouseleave", function(e){
+                    e.target.classList.remove("over");
+                });
+            }
+            /*자바스크립트에서 애니메이션 주는 방법 2가지
+              //setInterval(실행할함수,시간) -> 실행함수를 3초간격으로 실행
+              또는 addclass로 해당 소스에 class를 추가하여 애니메이션을 줌*/
+         });
+
+    </script>
+</body>
+</html>

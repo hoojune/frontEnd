@@ -1,0 +1,22 @@
+render
+
+이제 index.ejs를 렌더링하는 router.get('/')에 대해 살펴보자.
+
+URI path가 '/'이고 HTTP Method가 GET인 요청에 대해
+
+function(req, res){
+  res.render('index', { title: 'Express' });
+});
+
+가 동작한다.
+
+일단 함수의 매개변수에 대해 알아보자.
+
+req 객체는 클라이언트의 request에 대한 정보가 담겨 있다.
+res 객체는 서버가 클라이언트에게 response할 정보가 담겨있다.
+
+따라서 res.render('index', { title: 'Express' }) 는
+서버가 클라이언트에게 index.ejs를 렌더링하여 보내겠다는 의미이다.
+
+그리하여 ejs 파일이 렌더링 되고 html이 된 후에 html 문서를 클라이언트에게
+response하였기 때문에 맨처음 이미지 화면이 보였던 것이다.

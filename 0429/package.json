@@ -1,0 +1,23 @@
+{
+  "name": "0415",
+  "version": "1.0.0",
+  "main": "01.js",
+  "scripts": {
+    "start": "nodemon mongodb.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "install": "^0.13.0",
+    "jade": "^1.11.0",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.1",
+    "morgan": "^1.10.0"
+  },
+  "description": ""
+}

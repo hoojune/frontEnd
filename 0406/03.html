@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      body {
+        padding: 50px;
+        background-color: aqua;
+      }
+      .container {
+        margin-top: 35px;
+      }
+      .controller li {
+        display: inline-block;
+        margin-left: 8px;
+      }
+      .controller li:first-child {
+        margin-left: 0;
+      }
+      .controller li a {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 20px;
+        transition: all 0.3s;
+      }
+      .controller li.on a {
+        /*on실행시*/
+        width: 50px;
+        background-color: #8ac007;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        const container = document.querySelector(".container")[0]; //class는 무조건배열
+        const controller = container.children[0]; //첫번쨰 자식
+        const liList = controller.children; //모든 자식
+
+        for (let i = 0; i < liList.length; i++) {
+          liList[i].addEventListener("click", function (e) {
+            //e 는 특정타겟잡을시 무조건!
+            e.preventDefault(); //해당 이벤트 멈춤
+            //어떤 이벤트를 명시적으로 처리하지 않은 경우, 해당 이벤트에 대한
+            //사용자 에이전트의 기본 동작을 실행하지 않도록 지정합니다.
+
+            //모든 요소 클래스 삭제
+            for (let j = 0; j < liList.length; j++) {
+              liList[j].classList.remove("on");
+            }
+            e.currentTarget.classList.add("on"); //현재 대상에 해당클래스 추가
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="controller">
+        <li class="on"><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
+  </body>
+</html>

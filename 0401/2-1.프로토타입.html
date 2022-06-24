@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입</title>
+</head>
+<body>
+    <h2>프로토타입</h2>
+    <p>
+        자바스크립트의 모든 객체는 프로토타입이라는 객체를 포함하고 있습니다.<br>
+        모든 객체는 프로토타입으로부터 프로퍼티와 메서드를 상속받습니다,<br>
+        자바스크립트의 모든객체는 최소한 하나 이상의 다른 객체로부터 상속을 받으며
+        상속되는 정보를 제공하는 객체를 프로토타입이라고 합니다.
+    </p>
+    <script>
+        'use strict';
+        function Dog(name,age,color){ //기본틀 생성
+            this.name =name;
+            this.age = age;
+            this.color = color;
+        }
+        //Dog메서드에 매개변수 + 값추가시
+        //객체생성한 밑의 객체에도 바로 추가가능
+        Dog.prototype.family = "포메리안"; 
+        //함수객체를 추가시 값으로 리턴값을 내줌
+        Dog.prototype.run = function(){
+            return `${this.name}가 달립니다`;
+        }
+
+        //해당 메서드를 상속 매개변수에 값넣음
+        //하나하나가 객체임 
+        const Rucy = new Dog("루시" , 10 , "흰색");
+        const PPomi = new Dog("뽀미",5,"흰색");
+
+        console.log(`이름 : ${Rucy.name}`);
+        console.log(`나이 : ${Rucy.age}`);
+        console.log(`색상 : ${Rucy.color}`);
+        console.log(`종 : ${Rucy.family}`);//추가가능
+        console.log(Rucy.run());
+        console.log(`이름 : ${PPomi.name}`);
+        console.log(`나이 : ${PPomi.age}`);
+        console.log(`색상 : ${PPomi.color}`);
+        PPomi.family = "폼피츠";
+        console.log(`종 : ${PPomi.family}`);
+        console.log(PPomi.run());
+        //모든 객체는 속성과 속성값을 가지고 있다.
+    </script>
+</body>
+</html>
